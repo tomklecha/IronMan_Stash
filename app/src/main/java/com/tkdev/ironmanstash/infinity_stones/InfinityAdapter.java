@@ -30,7 +30,11 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
 
     @Override
     public void onBindViewHolder(InfinityViewHolder infinityViewHolder, int position) {
-        infinityViewHolder.stoneImageView.setImageResource(infinityStones.get(position).getImageId());
+        if (infinityStones.get(position).isVisible() == View.VISIBLE) {
+            infinityViewHolder.stoneImageView.setImageResource(infinityStones.get(position).getImageId());
+        } else {
+            infinityViewHolder.stoneImageView.setVisibility(View.INVISIBLE);
+        }
         infinityViewHolder.stoneTextView.setText(infinityStones.get(position).getStoneName());
     }
 
@@ -47,6 +51,7 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
         public InfinityViewHolder(View view) {
             super(view);
             stoneImageView = view.findViewById(R.id.recycler_stone_image);
+
             stoneTextView = view.findViewById(R.id.recycler_stone_name);
         }
     }

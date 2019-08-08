@@ -51,6 +51,8 @@ public class SingleStoneCV extends Fragment {
                 if (passwordInput.equals(passwordExpected)) {
                     Toast.makeText(getContext(), passwordInput, Toast.LENGTH_SHORT).show();
                     getFragmentManager().popBackStack();
+
+
                 }
                 Toast.makeText(getContext(), passwordInput + " expected : " + passwordExpected  , Toast.LENGTH_SHORT).show();
             }
