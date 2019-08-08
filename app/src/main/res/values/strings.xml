@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IronManStash</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="infinity_stones_title">Collect all infinity stones</string>
+    <string name="single_stone_title">Stone Title</string>
+    <string name="button_gather_stones">Gather the Infinity Stones !!!</string>
+    <string name="menu_button">Gather infinity stones !</string>
+</resources>
