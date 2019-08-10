@@ -20,7 +20,10 @@ public class SingleStonePagerAdapter extends FragmentStatePagerAdapter {
         if(cursor.moveToPosition(position)){
 
             return SingleStoneDetail.newInstance(
-                    cursor.getString(0)
+                    cursor.getString(1),
+                    cursor.getInt(2),
+                    cursor.getString(3),
+                    cursor.getString(4)
             );
         }
         return null;

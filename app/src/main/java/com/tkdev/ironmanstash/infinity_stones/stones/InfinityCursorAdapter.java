@@ -31,13 +31,13 @@ public class InfinityCursorAdapter extends RecyclerView.Adapter<InfinityCursorAd
     @Override
     public void onBindViewHolder(InfinityViewHolder infinityViewHolder, int position) {
         if (cursor.moveToPosition(position)) {
-            infinityViewHolder.stoneImageView.setImageResource(cursor.getInt(1));
-            if (cursor.getInt(2) == View.INVISIBLE) {
+            infinityViewHolder.stoneImageView.setImageResource(cursor.getInt(2));
+            if (cursor.getInt(3) == View.INVISIBLE) {
                 infinityViewHolder.stoneImageView.setImageAlpha(30);
             }
 
         }
-        infinityViewHolder.stoneTextView.setText(cursor.getString(0));
+        infinityViewHolder.stoneTextView.setText(cursor.getString(1));
     }
 
     @Override

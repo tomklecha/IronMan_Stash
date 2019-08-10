@@ -11,7 +11,6 @@ import com.tkdev.ironmanstash.infinity_stones.stones.InfinityFragment;
 import com.tkdev.ironmanstash.infinity_stones.details.SingleStoneCV;
 import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.POWER_STONE;
 
 public class MainActivity extends AppCompatActivity {
 

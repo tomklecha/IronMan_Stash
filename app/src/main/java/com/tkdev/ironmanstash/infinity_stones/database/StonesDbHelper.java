@@ -6,45 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
 
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DETAIL_TABLE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry.COLUMN_DETAIL_COLOR;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry.COLUMN_DETAIL_NAME;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry.COLUMN_DETAIL_PASSWORD;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry.COLUMN_DETAIL_QUEST;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.IF_TABLE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry.COLUMN_STONE_IMAGE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry.COLUMN_STONE_NAME;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry.COLUMN_STONE_VISIBILITY;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.MIND_STONE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.MIND_STONE_COLOR;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.MIND_STONE_IMAGE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.MIND_STONE_PASSWORD;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.MIND_STONE_QUEST;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.POWER_STONE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.POWER_STONE_COLOR;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.POWER_STONE_IMAGE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.POWER_STONE_PASSWORD;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.POWER_STONE_QUEST;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.REALITY_STONE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.REALITY_STONE_COLOR;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.REALITY_STONE_IMAGE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.REALITY_STONE_PASSWORD;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.REALITY_STONE_QUEST;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SOUL_STONE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SOUL_STONE_COLOR;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SOUL_STONE_IMAGE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SOUL_STONE_PASSWORD;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SOUL_STONE_QUEST;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SPACE_STONE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SPACE_STONE_COLOR;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SPACE_STONE_IMAGE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SPACE_STONE_PASSWORD;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.SPACE_STONE_QUEST;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.TIME_STONE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.TIME_STONE_COLOR;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.TIME_STONE_IMAGE;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.TIME_STONE_PASSWORD;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.TIME_STONE_QUEST;
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.*;
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry.*;
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry.*;
+
 
 public class StonesDbHelper extends SQLiteOpenHelper {
 
@@ -63,6 +28,7 @@ public class StonesDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE + IF_NOT_EXISTS + DETAIL_TABLE +
                 "(" +
+                COLUMN_DETAIL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_DETAIL_NAME + " TEXT NOT NULL, " +
                 COLUMN_DETAIL_COLOR + " INTEGER NOT NULL, " +
                 COLUMN_DETAIL_QUEST + " TEXT NOT NULL, " +
@@ -79,13 +45,14 @@ public class StonesDbHelper extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_TABLE + IF_NOT_EXISTS + IF_TABLE +
                 "(" +
+                COLUMN_STONE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_STONE_NAME + " TEXT NOT NUll, " +
                 COLUMN_STONE_IMAGE + " INTEGER NOT NULL, " +
                 COLUMN_STONE_VISIBILITY + " NUMERIC DEFAULT 0" +
                 ")");
 
         insertStones(db, POWER_STONE, POWER_STONE_IMAGE, STONE_INVISIBLE);
-        insertStones(db, TIME_STONE, TIME_STONE_IMAGE, STONE_VISIBLE);
+        insertStones(db, TIME_STONE, TIME_STONE_IMAGE, STONE_INVISIBLE);
         insertStones(db, SOUL_STONE, SOUL_STONE_IMAGE, STONE_INVISIBLE);
         insertStones(db, REALITY_STONE, REALITY_STONE_IMAGE, STONE_INVISIBLE);
         insertStones(db, MIND_STONE, MIND_STONE_IMAGE, STONE_INVISIBLE);

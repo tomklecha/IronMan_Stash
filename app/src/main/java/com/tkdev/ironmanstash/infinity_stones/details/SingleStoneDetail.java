@@ -4,8 +4,6 @@ package com.tkdev.ironmanstash.infinity_stones.details;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
-import com.tkdev.ironmanstash.infinity_stones.stones.InfinityFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,18 +20,27 @@ import com.tkdev.ironmanstash.infinity_stones.stones.InfinityFragment;
 public class SingleStoneDetail extends Fragment {
 
     public static final String NAME = "name";
+    public static final String QUEST = "quest";
+    public static final String COLOR = "color";
+    public static final String PASSWORD = "password";
 
     private Button confirmButton;
     private EditText passwordText;
     private TextView textView;
+    private TextView questView;
 
     private String name;
+    private int color;
+    private String quest;
     private String passwordInput;
-    private String passwordExpected = "pass";
+    private String passwordExpected;
 
-    public static SingleStoneDetail newInstance(String name) {
+    public static SingleStoneDetail newInstance(String name, int color, String quest, String password) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(NAME, name);
+        bundle.putSerializable(COLOR, color);
+        bundle.putSerializable(QUEST, quest);
+        bundle.putSerializable(PASSWORD, password);
 
 
         SingleStoneDetail fragment = new SingleStoneDetail();
@@ -48,6 +54,9 @@ public class SingleStoneDetail extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         name = (String) getArguments().getSerializable(NAME);
+        color = (int) getArguments().getSerializable(COLOR);
+        quest = (String) getArguments().getSerializable(QUEST);
+        passwordExpected = (String) getArguments().getSerializable(PASSWORD);
     }
 
     @Override
@@ -55,11 +64,12 @@ public class SingleStoneDetail extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_stone_detail, container, false);
-//        view.setBackgroundColor;
+        view.setBackgroundColor(getResources().getColor(color));
 
-        textView = view.findViewById(R.id.stone_name_view);
+        textView = view.findViewById(R.id.stone_text_view);
+        questView = view.findViewById(R.id.quest_text_view);
         confirmButton = view.findViewById(R.id.confirm_button);
-        passwordText = view.findViewById(R.id.password_imput);
+        passwordText = view.findViewById(R.id.password_input);
 
         textView.setText(name);
 
@@ -72,6 +82,7 @@ public class SingleStoneDetail extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         textView.setText(name);
+        questView.setText(quest);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +91,10 @@ public class SingleStoneDetail extends Fragment {
 
                 if (passwordInput.equals(passwordExpected)) {
 
-                    int i = getFragmentManager().getBackStackEntryCount();
-                    Toast.makeText(getContext(), Integer.toString(i), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Brawo me", Toast.LENGTH_SHORT).show();
+
+//                    int i = getFragmentManager().getBackStackEntryCount();
+//                    Toast.makeText(getContext(), Integer.toString(i), Toast.LENGTH_SHORT).show();
 
                 } else {
                     Toast.makeText(getContext(), passwordInput + " expected : " + passwordExpected, Toast.LENGTH_SHORT).show();
