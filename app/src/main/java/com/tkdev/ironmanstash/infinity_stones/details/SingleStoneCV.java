@@ -1,17 +1,21 @@
 package com.tkdev.ironmanstash.infinity_stones.details;
 
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
+import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
+
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DETAIL_TABLE;
 
 
 /**
@@ -19,44 +23,38 @@ import com.tkdev.ironmanstash.R;
  */
 public class SingleStoneCV extends Fragment {
 
-    private Button confirmButton;
-    private EditText passwordText;
-    private String passwordInput;
-    private String passwordExpected = "pass";
+    StonesDbHelper dbHelper;
+    SQLiteDatabase database;
+    Cursor cursor;
+    protected TabLayout tabLayout;
+    protected ViewPager viewPager;
+    private SingleStonePagerAdapter pagerAdapter;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_stone_detail, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_single_view, container, false);
 
+        tabLayout = rootView.findViewById(R.id.tab_layout);
+        viewPager = rootView.findViewById(R.id.stone_vp_pages);
 
-        confirmButton = view.findViewById(R.id.confirm_button);
-        passwordText = view.findViewById(R.id.password_imput);
-
-
-        return view;
+        return rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        dbHelper = new StonesDbHelper(getContext());
+        database = dbHelper.getReadableDatabase();
+        cursor = database.query(DETAIL_TABLE, null, null, null, null, null, null);
 
-        confirmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                passwordInput = passwordText.getText().toString();
+        pagerAdapter = new SingleStonePagerAdapter(getChildFragmentManager(), cursor);
 
-                if (passwordInput.equals(passwordExpected)) {
-                    Toast.makeText(getContext(), passwordInput, Toast.LENGTH_SHORT).show();
-                    getFragmentManager().popBackStack();
-
-
-                }
-                Toast.makeText(getContext(), passwordInput + " expected : " + passwordExpected  , Toast.LENGTH_SHORT).show();
-            }
-        });
+        viewPager.setAdapter(pagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
 
 
     }

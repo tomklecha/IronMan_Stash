@@ -1,18 +1,24 @@
 package com.tkdev.ironmanstash.infinity_stones.stones;
 
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.tkdev.ironmanstash.R;
+import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 
 import java.util.ArrayList;
+
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.IF_TABLE;
 
 
 /**
@@ -23,8 +29,12 @@ public class InfinityFragment extends Fragment {
     public static final int STONE_INVISIBLE = View.INVISIBLE;
     public static final int STONE_VISIBLE = View.VISIBLE;
 
+    StonesDbHelper dbHelper;
+    SQLiteDatabase database;
+    Cursor cursor;
+
     private RecyclerView recyclerView;
-    private InfinityAdapter infinityAdapter;
+    private InfinityCursorAdapter infinityAdapter;
 
 
 
@@ -49,19 +59,17 @@ public class InfinityFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ArrayList<InfinityStones> infinityStones = new ArrayList<>();
-        infinityStones.add(new InfinityStones(android.R.drawable.ic_lock_lock, "Power Stone", STONE_INVISIBLE));
-        infinityStones.add(new InfinityStones(android.R.drawable.ic_menu_report_image, "Time Stone",STONE_VISIBLE));
-        infinityStones.add(new InfinityStones(android.R.drawable.sym_call_missed, "Soul Stone", STONE_INVISIBLE));
-        infinityStones.add(new InfinityStones(android.R.drawable.arrow_down_float, "Reality Stone", STONE_INVISIBLE));
-        infinityStones.add(new InfinityStones(android.R.drawable.arrow_up_float, "Mind Stone", STONE_INVISIBLE));
-        infinityStones.add(new InfinityStones(android.R.drawable.dialog_frame, "Space Stone", STONE_INVISIBLE));
+        dbHelper = new StonesDbHelper(getContext());
+        database = dbHelper.getReadableDatabase();
+        cursor = database.query(IF_TABLE, null, null, null, null, null, null);
 
 
-        infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
+        infinityAdapter = new InfinityCursorAdapter(getContext(), cursor);
 
         recyclerView.setAdapter(infinityAdapter);
 
         }
+
     }
+
 

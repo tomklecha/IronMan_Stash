@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.tkdev.ironmanstash.infinity_stones.database.InfinityStonesDbHelper;
+import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class InfinityStonesOperations {
 
     private InfinityStonesOperations(Context context){
         this.context = context;
-        this.database = new InfinityStonesDbHelper(context).getWritableDatabase();
+        this.database = new StonesDbHelper(context).getWritableDatabase();
         this.infinityStonesList = new ArrayList<>();
     }
 

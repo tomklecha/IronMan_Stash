@@ -4,7 +4,7 @@ import android.provider.BaseColumns;
 
 import com.tkdev.ironmanstash.R;
 
-public class StoneContract {
+public class StonesContract {
 
     public static final String POWER_STONE = "Power stone";
     public static final String TIME_STONE = "Time stone";

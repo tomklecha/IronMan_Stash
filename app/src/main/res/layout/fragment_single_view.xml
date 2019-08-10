@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:windowBackground"
     tools:context=".infinity_stones.details.SingleStoneCV">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:id="@+id/tab_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp_pages"
+        android:id="@+id/stone_vp_pages"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-</FrameLayout>
+</LinearLayout>
