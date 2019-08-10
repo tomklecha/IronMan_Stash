@@ -1,4 +1,7 @@
-package com.tkdev.ironmanstash.infinity_stones;
+package com.tkdev.ironmanstash.infinity_stones.stones;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InfinityStones{
 
@@ -28,3 +31,4 @@ public class InfinityStones{
         isVisible = visible;
     }
 }
+

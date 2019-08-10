@@ -1,7 +1,6 @@
-package com.tkdev.ironmanstash.infinity_stones;
+package com.tkdev.ironmanstash.infinity_stones.stones;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +52,7 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
             stoneImageView = view.findViewById(R.id.recycler_stone_image);
 
             stoneTextView = view.findViewById(R.id.recycler_stone_name);
+            stoneTextView.setText(R.string.power_stone_quest);
         }
     }
 }

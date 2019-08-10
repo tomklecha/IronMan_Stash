@@ -1,10 +1,39 @@
 <resources>
     <string name="app_name">IronManStash</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="infinity_stones_title">Collect all infinity stones</string>
     <string name="single_stone_title">Stone Title</string>
     <string name="button_gather_stones">Gather the Infinity Stones !!!</string>
     <string name="menu_button">Gather infinity stones !</string>
+
+    <string name="power_stone_quest">
+
+    </string>
+    <string name="time_stone_quest">
+
+    </string>
+    <string name="soul_stone_quest">
+
+    </string>
+    <string name="reality_stone_quest">
+
+    </string>
+    <string name="mind_stone_quest">
+
+    </string>
+    <string name="space_stone_quest">
+
+    </string>
+
+    <string name="power_stone_password">powerpass</string>
+    <string name="time_stone_password">timepass</string>
+    <string name="soul_stone_password">soulpass</string>
+    <string name="reality_stone_password">realitypass</string>
+    <string name="mind_stone_password">mindpass</string>
+    <string name="space_stone_password">spacepass</string>
+
+
+
+
+
 </resources>

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
 
-import com.tkdev.ironmanstash.infinity_stones.InfinityStones;
+import com.tkdev.ironmanstash.R;
 
 import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.DETAIL_TABLE;
 import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.DetailStoneEntry.COLUMN_DETAIL_COLOR;
@@ -17,6 +17,36 @@ import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.IF_T
 import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.InfinityStonesEntry.COLUMN_STONE_IMAGE;
 import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.InfinityStonesEntry.COLUMN_STONE_NAME;
 import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.InfinityStonesEntry.COLUMN_STONE_VISIBILITY;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.MIND_STONE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.MIND_STONE_COLOR;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.MIND_STONE_IMAGE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.MIND_STONE_PASSWORD;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.MIND_STONE_QUEST;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.POWER_STONE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.POWER_STONE_COLOR;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.POWER_STONE_IMAGE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.POWER_STONE_PASSWORD;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.POWER_STONE_QUEST;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.REALITY_STONE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.REALITY_STONE_COLOR;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.REALITY_STONE_IMAGE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.REALITY_STONE_PASSWORD;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.REALITY_STONE_QUEST;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SOUL_STONE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SOUL_STONE_COLOR;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SOUL_STONE_IMAGE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SOUL_STONE_PASSWORD;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SOUL_STONE_QUEST;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SPACE_STONE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SPACE_STONE_COLOR;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SPACE_STONE_IMAGE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SPACE_STONE_PASSWORD;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.SPACE_STONE_QUEST;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.TIME_STONE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.TIME_STONE_COLOR;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.TIME_STONE_IMAGE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.TIME_STONE_PASSWORD;
+import static com.tkdev.ironmanstash.infinity_stones.database.StoneContract.TIME_STONE_QUEST;
 
 public class InfinityStonesDbHelper extends SQLiteOpenHelper {
 
@@ -41,6 +71,13 @@ public class InfinityStonesDbHelper extends SQLiteOpenHelper {
                 COLUMN_DETAIL_PASSWORD + " TEXT NOT NULL" +
                 ")");
 
+        insertDetail(db, POWER_STONE, POWER_STONE_COLOR, POWER_STONE_QUEST, POWER_STONE_PASSWORD);
+        insertDetail(db, TIME_STONE, TIME_STONE_COLOR, TIME_STONE_QUEST, TIME_STONE_PASSWORD);
+        insertDetail(db, SOUL_STONE, SOUL_STONE_COLOR, SOUL_STONE_QUEST, SOUL_STONE_PASSWORD);
+        insertDetail(db, REALITY_STONE, REALITY_STONE_COLOR, REALITY_STONE_QUEST, REALITY_STONE_PASSWORD);
+        insertDetail(db, MIND_STONE, MIND_STONE_COLOR, MIND_STONE_QUEST, MIND_STONE_PASSWORD);
+        insertDetail(db, SPACE_STONE, SPACE_STONE_COLOR, SPACE_STONE_QUEST, SPACE_STONE_PASSWORD);
+
 
         db.execSQL(CREATE_TABLE + IF_NOT_EXISTS + IF_TABLE +
                 "(" +
@@ -49,12 +86,12 @@ public class InfinityStonesDbHelper extends SQLiteOpenHelper {
                 COLUMN_STONE_VISIBILITY + " NUMERIC DEFAULT 0" +
                 ")");
 
-        insertStones(db,"Power Stone", android.R.drawable.ic_lock_lock, STONE_INVISIBLE);
-        insertStones(db,"Time Stone",android.R.drawable.ic_menu_report_image, STONE_VISIBLE);
-        insertStones(db,"Soul Stone",android.R.drawable.sym_call_missed, STONE_INVISIBLE);
-        insertStones(db,"Reality Stone",android.R.drawable.arrow_down_float,  STONE_INVISIBLE);
-        insertStones(db,"Mind Stone",android.R.drawable.arrow_up_float,  STONE_INVISIBLE);
-        insertStones(db,"Space Stone",android.R.drawable.dialog_frame,  STONE_INVISIBLE);
+        insertStones(db, POWER_STONE, POWER_STONE_IMAGE, STONE_INVISIBLE);
+        insertStones(db, TIME_STONE, TIME_STONE_IMAGE, STONE_VISIBLE);
+        insertStones(db, SOUL_STONE, SOUL_STONE_IMAGE, STONE_INVISIBLE);
+        insertStones(db, REALITY_STONE, REALITY_STONE_IMAGE, STONE_INVISIBLE);
+        insertStones(db, MIND_STONE, MIND_STONE_IMAGE, STONE_INVISIBLE);
+        insertStones(db, SPACE_STONE, SPACE_STONE_IMAGE, STONE_INVISIBLE);
     }
 
     @Override
@@ -62,7 +99,7 @@ public class InfinityStonesDbHelper extends SQLiteOpenHelper {
 
     }
 
-    private void insertDetail(SQLiteDatabase db, String name, int color, String quest, String password ){
+    private void insertDetail(SQLiteDatabase db, String name, int color, String quest, String password) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_DETAIL_NAME, name);
         values.put(COLUMN_DETAIL_COLOR, color);
@@ -72,7 +109,7 @@ public class InfinityStonesDbHelper extends SQLiteOpenHelper {
         db.insert(DETAIL_TABLE, null, values);
     }
 
-    private void insertStones(SQLiteDatabase db, String name, int image, int isVisible ){
+    private void insertStones(SQLiteDatabase db, String name, int image, int isVisible) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_STONE_NAME, name);
         values.put(COLUMN_STONE_IMAGE, image);
@@ -81,13 +118,12 @@ public class InfinityStonesDbHelper extends SQLiteOpenHelper {
         db.insert(IF_TABLE, null, values);
     }
 
-    public void updateVisibility(SQLiteDatabase db, String stoneName){
+    public void updateVisibility(SQLiteDatabase db, String stoneName) {
 
         db.execSQL("UPDATE " + IF_TABLE + " SET " +
                 COLUMN_STONE_VISIBILITY + " = 0 WHERE "
-                + COLUMN_STONE_NAME + " = \""+ stoneName  + "\"");
+                + COLUMN_STONE_NAME + " = \"" + stoneName + "\"");
 
-        
 
     }
 }

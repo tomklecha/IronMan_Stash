@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones;
+package com.tkdev.ironmanstash.infinity_stones.details;
 
 
 import android.os.Bundle;

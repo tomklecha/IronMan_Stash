@@ -3,4 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="PowerStone">#ffaa66cc</color>
+    <color name="TimeStone">#ff669900</color>
+    <color name="SoulStone">#ffff8800</color>
+    <color name="RealityStone">#ffcc0000</color>
+    <color name="MindStone">#ffffbb55</color>
+    <color name="SpaceStone">#ff0077cc</color>
+
+
 </resources>
