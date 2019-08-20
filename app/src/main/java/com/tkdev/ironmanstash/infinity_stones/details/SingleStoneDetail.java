@@ -4,6 +4,8 @@ package com.tkdev.ironmanstash.infinity_stones.details;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,20 +86,28 @@ public class SingleStoneDetail extends Fragment {
         textView.setText(name);
         questView.setText(quest);
 
+
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 passwordInput = passwordText.getText().toString();
 
                 if (passwordInput.equals(passwordExpected)) {
+                    Toast.makeText(getContext(), "Password correct, unlocked " + name, Toast.LENGTH_SHORT).show();
+                }
+//                    getFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+//                        @Override
+//                        public void onBackStackChanged() {
+//                            getFragmentManager().popBackStackImmediate();
+//
+//                    String j = getParentFragment().getTag();
+//                    String k = getTag();
+//                    String i = String.valueOf(getFragmentManager().getBackStackEntryCount());
+//                    Toast.makeText(getContext(), i + " : " + j, Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(getContext(), "Brawo me", Toast.LENGTH_SHORT).show();
-
-//                    int i = getFragmentManager().getBackStackEntryCount();
-//                    Toast.makeText(getContext(), Integer.toString(i), Toast.LENGTH_SHORT).show();
-
-                } else {
+                else {
                     Toast.makeText(getContext(), passwordInput + " expected : " + passwordExpected, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "try once more avenger !", Toast.LENGTH_SHORT).show();
                 }
             }
         });

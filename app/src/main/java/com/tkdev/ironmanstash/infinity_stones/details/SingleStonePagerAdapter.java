@@ -17,7 +17,7 @@ public class SingleStonePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if(cursor.moveToPosition(position)){
+        if (cursor.moveToPosition(position)) {
 
             return SingleStoneDetail.newInstance(
                     cursor.getString(1),
@@ -32,5 +32,15 @@ public class SingleStonePagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return cursor.getCount();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        if (cursor.moveToPosition(position)) {
+            String title = String.valueOf(cursor.getInt(0));
+            return title;
+
+        }
+        return null;
     }
 }

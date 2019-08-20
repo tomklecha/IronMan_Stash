@@ -11,13 +11,14 @@ import android.widget.TextView;
 import com.tkdev.ironmanstash.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.InfinityViewHolder> {
 
     private Context context;
-    private ArrayList<InfinityStones> infinityStones;
+    private List<InfinityStone> infinityStones;
 
-    public InfinityAdapter(Context context, ArrayList<InfinityStones> infinityStones) {
+    public InfinityAdapter(Context context, List<InfinityStone> infinityStones) {
         this.context = context;
         this.infinityStones = infinityStones;
     }
@@ -29,11 +30,11 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
 
     @Override
     public void onBindViewHolder(InfinityViewHolder infinityViewHolder, int position) {
-        if (infinityStones.get(position).isVisible() == View.VISIBLE) {
-            infinityViewHolder.stoneImageView.setImageResource(infinityStones.get(position).getImageId());
-        } else {
-            infinityViewHolder.stoneImageView.setVisibility(View.INVISIBLE);
-        }
+//        if (infinityStones.get(position).isVisible() == View.VISIBLE) {
+        infinityViewHolder.stoneImageView.setImageResource(infinityStones.get(position).getImageId());
+//        } else {
+//            infinityViewHolder.stoneImageView.setVisibility(View.INVISIBLE);
+//        }
         infinityViewHolder.stoneTextView.setText(infinityStones.get(position).getStoneName());
     }
 

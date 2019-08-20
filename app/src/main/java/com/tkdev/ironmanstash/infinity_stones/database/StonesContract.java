@@ -55,12 +55,12 @@ public class StonesContract {
 
     public static final String IF_TABLE = "infinity_stones";
 
-    static final class InfinityStonesEntry implements BaseColumns {
+    public static final class InfinityStonesEntry implements BaseColumns {
 
-        static final String COLUMN_STONE_ID = "_id";
-        static final String COLUMN_STONE_NAME = "name";
-        static final String COLUMN_STONE_IMAGE = "image_resource";
-        static final String COLUMN_STONE_VISIBILITY = "visibility";
+        public static final String COLUMN_STONE_ID = "_id";
+        public static final String COLUMN_STONE_NAME = "name";
+        public static final String COLUMN_STONE_IMAGE = "image_resource";
+        public static final String COLUMN_STONE_VISIBILITY = "visibility";
 
     }
 

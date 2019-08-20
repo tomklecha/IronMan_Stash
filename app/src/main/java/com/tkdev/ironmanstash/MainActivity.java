@@ -30,35 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.activity_container, new InfinityFragment() )
-                .addToBackStack(null)
+                .replace(R.id.activity_container, new InfinityFragment(), "frag" )
+                .addToBackStack("frag")
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if(id == R.id.menu_gather_stones){
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.infinity_fragment_layout, new SingleStoneCV(),"INFINITY")
-                    .addToBackStack("INFINITY")
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .commit();
-
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 }
