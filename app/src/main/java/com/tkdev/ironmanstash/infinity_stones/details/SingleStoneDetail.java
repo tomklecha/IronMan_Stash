@@ -1,6 +1,7 @@
 package com.tkdev.ironmanstash.infinity_stones.details;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
+import com.tkdev.ironmanstash.infinity_stones.stones.InfinityFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,6 +85,8 @@ public class SingleStoneDetail extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
+
         textView.setText(name);
         questView.setText(quest);
 
@@ -93,7 +97,13 @@ public class SingleStoneDetail extends Fragment {
                 passwordInput = passwordText.getText().toString();
 
                 if (passwordInput.equals(passwordExpected)) {
+
+                    getFragmentManager().popBackStack();
+
                     Toast.makeText(getContext(), "Password correct, unlocked " + name, Toast.LENGTH_SHORT).show();
+
+
+
                 }
 //                    getFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
 //                        @Override
@@ -112,5 +122,7 @@ public class SingleStoneDetail extends Fragment {
             }
         });
     }
+
+
 
 }

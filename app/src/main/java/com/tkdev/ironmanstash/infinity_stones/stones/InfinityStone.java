@@ -16,30 +16,30 @@ public class InfinityStone {
 //    }
 
 
-    public InfinityStone() {
+     InfinityStone() {
     }
 
-    public int getImageId() {
+     int getImageId() {
         return imageId;
     }
 
-    public void setImageId(int imageId) {
+    void setImageId(int imageId) {
         this.imageId = imageId;
     }
 
-    public String getStoneName() {
+     String getStoneName() {
         return stoneName;
     }
 
-    public void setStoneName(String stoneName) {
+     void setStoneName(String stoneName) {
         this.stoneName = stoneName;
     }
 
-    public int getIsVisible() {
+     int getIsVisible() {
         return isVisible;
     }
 
-    public void setIsVisible(int isVisible) {
+     void setIsVisible(int isVisible) {
         this.isVisible = isVisible;
     }
 

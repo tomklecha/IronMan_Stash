@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
@@ -26,9 +27,9 @@ public class SingleStoneCV extends Fragment {
     StonesDbHelper dbHelper;
     SQLiteDatabase database;
     Cursor cursor;
-    protected TabLayout tabLayout;
-    protected ViewPager viewPager;
-    private SingleStonePagerAdapter pagerAdapter;
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    SingleStonePagerAdapter pagerAdapter;
 
 
     @Override
@@ -47,6 +48,7 @@ public class SingleStoneCV extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         dbHelper = new StonesDbHelper(getContext());
         database = dbHelper.getReadableDatabase();
         cursor = database.query(DETAIL_TABLE, null, null, null, null, null, null);
@@ -58,9 +60,6 @@ public class SingleStoneCV extends Fragment {
 
 
     }
-
-    
-
 
 
 }

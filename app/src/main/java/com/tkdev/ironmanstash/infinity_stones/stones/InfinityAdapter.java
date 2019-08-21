@@ -15,6 +15,7 @@ import java.util.List;
 
 public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.InfinityViewHolder> {
 
+    private int IS_VISIBLE = 4;
     private Context context;
     private List<InfinityStone> infinityStones;
 
@@ -30,11 +31,10 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
 
     @Override
     public void onBindViewHolder(InfinityViewHolder infinityViewHolder, int position) {
-//        if (infinityStones.get(position).isVisible() == View.VISIBLE) {
         infinityViewHolder.stoneImageView.setImageResource(infinityStones.get(position).getImageId());
-//        } else {
-//            infinityViewHolder.stoneImageView.setVisibility(View.INVISIBLE);
-//        }
+        if (infinityStones.get(position).getIsVisible() == IS_VISIBLE) {
+            infinityViewHolder.stoneImageView.setImageAlpha(30);
+        }
         infinityViewHolder.stoneTextView.setText(infinityStones.get(position).getStoneName());
     }
 

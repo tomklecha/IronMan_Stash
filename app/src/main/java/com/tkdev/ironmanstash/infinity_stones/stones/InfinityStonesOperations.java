@@ -9,6 +9,8 @@ import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.IF_TABLE;
+
 public class InfinityStonesOperations {
 
     private static InfinityStonesOperations operations;
@@ -36,13 +38,12 @@ public class InfinityStonesOperations {
         return new InfinityCursorWrapper(cursor);
     }
 
-    public List<InfinityStone> getInfinityStoneList(String tableName) {
+    public List<InfinityStone> getInfinityStoneList() {
         List<InfinityStone> list =  new ArrayList<>();
 
-        InfinityCursorWrapper cursorWrapper = queryStones(tableName);
+        InfinityCursorWrapper cursorWrapper = queryStones(IF_TABLE);
 
 
-//        TODO all getters for each element to list
         try{
             cursorWrapper.moveToFirst();
             while (!cursorWrapper.isAfterLast()){
