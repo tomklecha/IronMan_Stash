@@ -56,13 +56,13 @@ public class InfinityFragmentChanger extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-
-
-//        name = (String) getArguments().getSerializable("NAME");
-
-
-
         super.onCreate(savedInstanceState);
+
+
+        name = (String) getArguments().getSerializable("NAME");
+
+
+
 
     }
 
@@ -85,12 +85,14 @@ public class InfinityFragmentChanger extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
 
+        operations = InfinityStonesOperations.get(getContext());
+        operations.updateStones(name);
+
+        infinityStones = operations.getInfinityStoneList();
 
 
-        int i = 1+1;
 
         infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
         recyclerView.setAdapter(infinityAdapter);
@@ -105,8 +107,8 @@ public class InfinityFragmentChanger extends Fragment {
 
                 getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.infinity_fragment_layout, new SingleStoneCV(), "frag3")
-                        .addToBackStack("frag3")
+                        .replace(R.id.infinity_fragment_container, new SingleStoneCV(), "frag3")
+//                        .addToBackStack("frag3")
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
             }

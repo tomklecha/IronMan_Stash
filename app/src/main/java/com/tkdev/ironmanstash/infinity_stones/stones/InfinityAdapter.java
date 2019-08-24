@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.tkdev.ironmanstash.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.InfinityViewHolder> {
@@ -26,7 +25,7 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
 
     @Override
     public InfinityViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new InfinityViewHolder(LayoutInflater.from(context).inflate(R.layout.fragment_infinity_content, viewGroup, false));
+        return new InfinityViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_view_container, viewGroup, false));
     }
 
     @Override
@@ -55,6 +54,9 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
             stoneTextView = view.findViewById(R.id.recycler_stone_name);
             stoneTextView.setText(R.string.power_stone_quest);
         }
+    }
+    public void setList(List<InfinityStone> list){
+        this.infinityStones = list;
     }
 }
 

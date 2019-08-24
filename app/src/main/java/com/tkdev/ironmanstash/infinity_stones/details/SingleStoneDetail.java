@@ -103,18 +103,14 @@ public class SingleStoneDetail extends Fragment {
             public void onClick(View v) {
                 passwordInput = passwordText.getText().toString();
 
-//                if (passwordInput.equals(passwordExpected)) {
-
-
+                if (passwordInput.equals(passwordExpected)) {
 
                     closeKeyboard();
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.single_view_layout, new InfinityFragmentChanger())
+                            .replace(R.id.activity_container, InfinityFragmentChanger.newInstance(name))
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
-
-
 
 
 //                    dbHelper = new StonesDbHelper(getContext());
@@ -122,22 +118,15 @@ public class SingleStoneDetail extends Fragment {
 ////                    todo update database detail by erasing name (so do delete)
 //
 //                    database.close();
-//
-//
-//                    getActivity().getSupportFragmentManager().popBackStack();
                     Toast.makeText(getContext(), "Password correct, unlocked " + name + " in SSdetail", Toast.LENGTH_SHORT).show();
-
-
-
-
-//                }
+                }
 
             }
         });
     }
 
-    private void closeKeyboard(){
-        InputMethodManager inputManager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+    private void closeKeyboard() {
+        InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }

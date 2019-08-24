@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.tkdev.ironmanstash.R;
 
-import java.util.ArrayList;
-
 public class InfinityCursorAdapter extends RecyclerView.Adapter<InfinityCursorAdapter.InfinityViewHolder> {
 
     private Context context;
@@ -25,7 +23,7 @@ public class InfinityCursorAdapter extends RecyclerView.Adapter<InfinityCursorAd
 
     @Override
     public InfinityViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new InfinityViewHolder(LayoutInflater.from(context).inflate(R.layout.fragment_infinity_content, viewGroup, false));
+        return new InfinityViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_view_container, viewGroup, false));
     }
 
     @Override
