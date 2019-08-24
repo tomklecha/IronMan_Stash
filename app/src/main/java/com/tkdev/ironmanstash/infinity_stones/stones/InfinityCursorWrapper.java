@@ -30,4 +30,12 @@ public class InfinityCursorWrapper extends CursorWrapper {
 
         return stone;
     }
+
+    public String getIFName(){
+        String name = getString(getColumnIndex(StonesContract.InfinityStonesEntry.COLUMN_STONE_NAME));
+
+        return name;
+    }
+
+
 }

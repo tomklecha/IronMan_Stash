@@ -1,8 +1,6 @@
 package com.tkdev.ironmanstash.infinity_stones.stones;
 
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,20 +16,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
-import com.tkdev.ironmanstash.infinity_stones.database.StonesContract;
-import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import com.tkdev.ironmanstash.infinity_stones.details.SingleStoneCV;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.IF_TABLE;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InfinityFragment extends Fragment {
+public class InfinityFragmentChanger extends Fragment {
 
     public static final int STONE_INVISIBLE = View.INVISIBLE;
     public static final int STONE_VISIBLE = View.VISIBLE;
@@ -41,16 +35,30 @@ public class InfinityFragment extends Fragment {
     private InfinityStonesOperations operations;
     private RecyclerView recyclerView;
     private Button gatherButton;
+    private TextView iftext;
 
     private String name;
 
-    public InfinityFragment() {
+    public InfinityFragmentChanger() {
         // Required empty public constructor
     }
 
+    public static InfinityFragmentChanger newInstance(String name){
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("NAME", name);
+
+        InfinityFragmentChanger fragment = new InfinityFragmentChanger();
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
+
+//        name = (String) getArguments().getSerializable("NAME");
 
 
 
@@ -64,6 +72,7 @@ public class InfinityFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_infinity, container, false);
 
+        iftext = rootView.findViewById(R.id.infinity_stones_title_page);
         gatherButton = rootView.findViewById(R.id.gather_button);
         recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -76,18 +85,19 @@ public class InfinityFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
-
         getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
 
 
-        operations = InfinityStonesOperations.get(getContext());
-        infinityStones = operations.getInfinityStoneList();
 
+        int i = 1+1;
 
         infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
         recyclerView.setAdapter(infinityAdapter);
+
+        Toast.makeText(getContext(), "Password correct, unlocked " + name + "In fragment Changer", Toast.LENGTH_SHORT).show();
+
+
 
         gatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,14 +114,6 @@ public class InfinityFragment extends Fragment {
 
 
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        Toast.makeText(getContext(), "Password correct, unlocked " + name + " in OnResume", Toast.LENGTH_SHORT).show();
-
-    }
-}
+ }
 
 
