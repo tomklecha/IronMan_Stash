@@ -33,14 +33,14 @@ public class InfinityFragment extends Fragment {
     private InfinityStonesOperations operations;
     private RecyclerView recyclerView;
     private Button gatherButton;
-
+    private Bundle arguments;
     private String name;
 
     public InfinityFragment() {
         // Required empty public constructor
     }
 
-    public static InfinityFragment newInstance(String name){
+    public static InfinityFragment newInstance(String name) {
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("NAME", name);
@@ -56,6 +56,15 @@ public class InfinityFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        arguments = getArguments();
+        if (arguments != null) {
+            name = (String) getArguments().getSerializable("NAME");
+            operations = InfinityStonesOperations.get(getContext());
+            operations.updateStones(name);
+
+
+
+        }
     }
 
     @Override
@@ -76,16 +85,7 @@ public class InfinityFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-
-        operations = InfinityStonesOperations.get(getContext());
-        infinityStones = operations.getInfinityStoneList();
-
-        infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
-
-
-        recyclerView.setAdapter(infinityAdapter);
+        reloadView();
 
         gatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +93,8 @@ public class InfinityFragment extends Fragment {
 
                 getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.infinity_fragment_container, new SingleStoneCV())
-//                        .addToBackStack("frag3")
+                        .replace(R.id.infinity_fragment_container, new SingleStoneCV(), "frag3")
+                        .addToBackStack("frag3")
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
 
@@ -111,6 +111,21 @@ public class InfinityFragment extends Fragment {
 
         Toast.makeText(getContext(), "Password correct, unlocked " + name + " in OnResume", Toast.LENGTH_SHORT).show();
 
+    }
+
+    private void reloadView() {
+        if (arguments == null) {
+            operations = InfinityStonesOperations.get(getContext());
+            createRecyclerView();
+        } else {
+            createRecyclerView();
+        }
+    }
+
+    private void createRecyclerView(){
+        infinityStones = operations.getInfinityStoneList();
+        infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
+        recyclerView.setAdapter(infinityAdapter);
     }
 }
 

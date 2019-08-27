@@ -1,6 +1,5 @@
 package com.tkdev.ironmanstash.infinity_stones.stones;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +10,8 @@ import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DETAIL_TABLE;
+import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry.COLUMN_DETAIL_NAME;
 import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.IF_TABLE;
 import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry.COLUMN_STONE_NAME;
 import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry.COLUMN_STONE_VISIBILITY;
@@ -51,9 +52,26 @@ public class InfinityStonesOperations {
         try{
             cursorWrapper.moveToFirst();
             while (!cursorWrapper.isAfterLast()){
-                if(cursorWrapper.getIFName().equals(name)) {
-                    updateDatabase(name);
+                if(cursorWrapper.getInfinityStoneName().equals(name)) {
+                    updateDbVisibility(name);
                     Toast.makeText(get(context).context, "done", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+
+                cursorWrapper.moveToNext();
+            }
+        }finally {
+            cursorWrapper.close();
+        }
+
+        cursorWrapper = queryStones(DETAIL_TABLE);
+
+        try{
+            cursorWrapper.moveToFirst();
+            while (!cursorWrapper.isAfterLast()){
+                if(cursorWrapper.getDetailStoneName().equals(name)) {
+                    deleteDbStone(name);
+                    Toast.makeText(get(context).context, "done detail", Toast.LENGTH_SHORT).show();
                     break;
                 }
 
@@ -75,7 +93,7 @@ public class InfinityStonesOperations {
         try{
             cursorWrapper.moveToFirst();
             while (!cursorWrapper.isAfterLast()){
-                list.add(cursorWrapper.getIF());
+                list.add(cursorWrapper.getInfinityStoneList());
                 cursorWrapper.moveToNext();
             }
         }finally {
@@ -86,17 +104,18 @@ public class InfinityStonesOperations {
     }
 
 
-    public List<InfinityStone> getDetailStoneList(String tableName) {
-        List<InfinityStone> list =  new ArrayList<>();
+    public List<SingleStone> getDetailStoneList() {
+        List<SingleStone> list =  new ArrayList<>();
 
-        InfinityCursorWrapper cursorWrapper = queryStones(tableName);
+        InfinityCursorWrapper cursorWrapper = queryStones(DETAIL_TABLE);
 
 
 //        TODO all getters for each element to list
         try{
             cursorWrapper.moveToFirst();
             while (!cursorWrapper.isAfterLast()){
-//                list.add(cursorWrapper.)
+                list.add(cursorWrapper.getDetailStoneList());
+                cursorWrapper.moveToNext();
             }
         }finally {
             cursorWrapper.close();
@@ -105,9 +124,16 @@ public class InfinityStonesOperations {
 
     }
 
-    private void updateDatabase(String name){
+    private void updateDbVisibility(String name){
         database.execSQL("UPDATE " + IF_TABLE + " SET " +
                 COLUMN_STONE_VISIBILITY + " = 0 WHERE "
                 + COLUMN_STONE_NAME + " = \"" + name + "\"");
     }
+
+    private void deleteDbStone(String name){
+        database.execSQL("DELETE FROM " + DETAIL_TABLE + " WHERE "
+                + COLUMN_DETAIL_NAME + " = \"" + name + "\"");
+    }
+
+
 }

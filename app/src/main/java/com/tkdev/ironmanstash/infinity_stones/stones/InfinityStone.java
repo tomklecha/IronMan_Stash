@@ -9,12 +9,6 @@ public class InfinityStone {
     private String stoneName;
     private int isVisible;
 
-//    public InfinityStone(int imageId, String stoneName, int isVisible) {
-//        this.imageId = imageId;
-//        this.stoneName = stoneName;
-//        this.isVisible = isVisible;
-//    }
-
 
      InfinityStone() {
     }
@@ -42,7 +36,6 @@ public class InfinityStone {
      void setIsVisible(int isVisible) {
         this.isVisible = isVisible;
     }
-
 
 }
 

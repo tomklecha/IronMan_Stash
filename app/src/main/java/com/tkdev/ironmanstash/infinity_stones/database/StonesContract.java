@@ -43,13 +43,13 @@ public class StonesContract {
 
     public static final String DETAIL_TABLE = "details";
 
-    static final class DetailStoneEntry implements BaseColumns {
+    public static final class DetailStoneEntry implements BaseColumns {
 
-        static final String COLUMN_DETAIL_ID = "_id";
-        static final String COLUMN_DETAIL_NAME = "name";
-        static final String COLUMN_DETAIL_COLOR = "color";
-        static final String COLUMN_DETAIL_QUEST = "quest";
-        static final String COLUMN_DETAIL_PASSWORD = "password";
+        public static final String COLUMN_DETAIL_ID = "_id";
+        public static final String COLUMN_DETAIL_NAME = "name";
+        public static final String COLUMN_DETAIL_COLOR = "color";
+        public static final String COLUMN_DETAIL_QUEST = "quest";
+        public static final String COLUMN_DETAIL_PASSWORD = "password";
     }
 
 

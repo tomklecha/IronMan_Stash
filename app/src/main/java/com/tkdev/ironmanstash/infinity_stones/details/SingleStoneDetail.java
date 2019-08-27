@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,6 @@ import android.widget.Toast;
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import com.tkdev.ironmanstash.infinity_stones.stones.InfinityFragment;
-import com.tkdev.ironmanstash.infinity_stones.stones.InfinityFragmentChanger;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -103,23 +104,22 @@ public class SingleStoneDetail extends Fragment {
             public void onClick(View v) {
                 passwordInput = passwordText.getText().toString();
 
-                if (passwordInput.equals(passwordExpected)) {
+//                if (passwordInput.equals(passwordExpected)) {
 
-                    closeKeyboard();
+//                    closeKeyboard();
+                ((AppCompatActivity)getContext()).getSupportFragmentManager().popBackStack("frag3", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.activity_container, InfinityFragmentChanger.newInstance(name))
+                            .replace(R.id.activity_container, InfinityFragment.newInstance(name))
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
 
+                String entryCount = String.valueOf(getActivity().getSupportFragmentManager().getBackStackEntryCount());
+                Toast.makeText(getContext(), "Backstack entry count : " + entryCount  , Toast.LENGTH_SHORT).show();
 
-//                    dbHelper = new StonesDbHelper(getContext());
-//                    database = dbHelper.getWritableDatabase();
-////                    todo update database detail by erasing name (so do delete)
-//
-//                    database.close();
                     Toast.makeText(getContext(), "Password correct, unlocked " + name + " in SSdetail", Toast.LENGTH_SHORT).show();
-                }
+//                }
 
             }
         });
