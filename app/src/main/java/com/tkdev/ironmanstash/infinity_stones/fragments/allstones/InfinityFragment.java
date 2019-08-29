@@ -14,7 +14,7 @@ import android.widget.Button;
 
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.fragments.Operations;
-import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStoneCV;
+import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStoneViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,7 @@ public class InfinityFragment extends Fragment {
 
     public static final int STONE_INVISIBLE = View.INVISIBLE;
     public static final int STONE_VISIBLE = View.VISIBLE;
+    public static final String FRAGMENT_TAG = "fragment";
 
     private InfinityAdapter infinityAdapter;
     private List<InfinityStone> infinityStones = new ArrayList<>();
@@ -37,7 +38,6 @@ public class InfinityFragment extends Fragment {
     private String name;
 
     public InfinityFragment() {
-        // Required empty public constructor
     }
 
     public static InfinityFragment newInstance(String name) {
@@ -63,7 +63,6 @@ public class InfinityFragment extends Fragment {
             operations.updateStones(name);
 
 
-
         }
     }
 
@@ -85,7 +84,7 @@ public class InfinityFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        reloadView();
+        createViews();
 
         gatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +92,8 @@ public class InfinityFragment extends Fragment {
 
                 getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.infinity_fragment_container, new SingleStoneCV(), "frag3")
-                        .addToBackStack("frag3")
+                        .replace(R.id.infinity_fragment_container, new SingleStoneViewPager(), FRAGMENT_TAG)
+                        .addToBackStack(FRAGMENT_TAG)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
 
@@ -105,16 +104,16 @@ public class InfinityFragment extends Fragment {
 
     }
 
-    private void reloadView() {
+    private void createViews() {
         if (arguments == null) {
             operations = Operations.get(getContext());
-            createRecyclerView();
+            recyclerViews();
         } else {
-            createRecyclerView();
+            recyclerViews();
         }
     }
 
-    private void createRecyclerView(){
+    private void recyclerViews() {
         infinityStones = operations.getInfinityStoneList();
         infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
         recyclerView.setAdapter(infinityAdapter);

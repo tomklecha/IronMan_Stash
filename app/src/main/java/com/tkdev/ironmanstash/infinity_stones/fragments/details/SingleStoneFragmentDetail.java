@@ -2,14 +2,11 @@ package com.tkdev.ironmanstash.infinity_stones.fragments.details;
 
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
-import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragment;
+
+import static com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragment.FRAGMENT_TAG;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SingleStoneDetail extends Fragment {
+public class SingleStoneFragmentDetail extends Fragment {
 
     public static final String NAME = "name";
     public static final String QUEST = "quest";
@@ -45,7 +43,7 @@ public class SingleStoneDetail extends Fragment {
     private String passwordExpected;
 
 
-    public static SingleStoneDetail newInstance(String name, int color, String quest, String password) {
+    public static SingleStoneFragmentDetail newInstance(String name, int color, String quest, String password) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(NAME, name);
         bundle.putSerializable(COLOR, color);
@@ -53,7 +51,7 @@ public class SingleStoneDetail extends Fragment {
         bundle.putSerializable(PASSWORD, password);
 
 
-        SingleStoneDetail fragment = new SingleStoneDetail();
+        SingleStoneFragmentDetail fragment = new SingleStoneFragmentDetail();
         fragment.setArguments(bundle);
 
         return fragment;
@@ -104,10 +102,10 @@ public class SingleStoneDetail extends Fragment {
                 if (passwordInput.equals(passwordExpected)) {
 
                     closeKeyboard();
-                ((AppCompatActivity)getContext()).getSupportFragmentManager().popBackStack("frag3", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                getActivity().getSupportFragmentManager().popBackStack(FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     getActivity().getSupportFragmentManager()
-                            .beginTransaction()
+                           .beginTransaction()
                             .replace(R.id.activity_container, InfinityFragment.newInstance(name))
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();

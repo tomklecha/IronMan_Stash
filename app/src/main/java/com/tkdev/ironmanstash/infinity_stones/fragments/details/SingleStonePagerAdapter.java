@@ -22,7 +22,7 @@ public class SingleStonePagerAdapter extends FragmentStatePagerAdapter {
 
         SingleStone stone = singleStoneList.get(posInList);
 
-        return SingleStoneDetail.newInstance(
+        return SingleStoneFragmentDetail.newInstance(
                 stone.getName(),
                 stone.getColor(),
                 stone.getQuest(),
@@ -53,7 +53,7 @@ public class SingleStonePagerAdapter extends FragmentStatePagerAdapter {
 //    public Fragment getItem(int position) {
 //        if (cursor.moveToPosition(position)) {
 //
-//            return SingleStoneDetail.newInstance(
+//            return SingleStoneFragmentDetail.newInstance(
 //                    cursor.getString(1),
 //                    cursor.getInt(2),
 //                    cursor.getString(3),

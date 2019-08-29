@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragment;
-import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStone;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.activity_container, new InfinityFragment(), "frag" )
+                .replace(R.id.activity_container, new InfinityFragment() )
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
 

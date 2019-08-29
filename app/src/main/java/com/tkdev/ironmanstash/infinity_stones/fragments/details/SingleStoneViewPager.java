@@ -13,18 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tkdev.ironmanstash.R;
-import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import com.tkdev.ironmanstash.infinity_stones.fragments.Operations;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SingleStoneCV extends Fragment {
+public class SingleStoneViewPager extends Fragment {
 
-    StonesDbHelper dbHelper;
-    SQLiteDatabase database;
-    Cursor cursor;
     TabLayout tabLayout;
     ViewPager viewPager;
     SingleStonePagerAdapter pagerAdapter;
