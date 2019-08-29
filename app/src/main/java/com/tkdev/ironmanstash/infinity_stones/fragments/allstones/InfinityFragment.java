@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.stones;
+package com.tkdev.ironmanstash.infinity_stones.fragments.allstones;
 
 
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
-import com.tkdev.ironmanstash.infinity_stones.details.SingleStoneCV;
+import com.tkdev.ironmanstash.infinity_stones.fragments.Operations;
+import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStoneCV;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class InfinityFragment extends Fragment {
 
     private InfinityAdapter infinityAdapter;
     private List<InfinityStone> infinityStones = new ArrayList<>();
-    private InfinityStonesOperations operations;
+    private Operations operations;
     private RecyclerView recyclerView;
     private Button gatherButton;
     private Bundle arguments;
@@ -59,7 +59,7 @@ public class InfinityFragment extends Fragment {
         arguments = getArguments();
         if (arguments != null) {
             name = (String) getArguments().getSerializable("NAME");
-            operations = InfinityStonesOperations.get(getContext());
+            operations = Operations.get(getContext());
             operations.updateStones(name);
 
 
@@ -107,7 +107,7 @@ public class InfinityFragment extends Fragment {
 
     private void reloadView() {
         if (arguments == null) {
-            operations = InfinityStonesOperations.get(getContext());
+            operations = Operations.get(getContext());
             createRecyclerView();
         } else {
             createRecyclerView();

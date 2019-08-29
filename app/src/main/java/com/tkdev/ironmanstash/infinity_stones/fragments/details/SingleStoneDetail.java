@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.details;
+package com.tkdev.ironmanstash.infinity_stones.fragments.details;
 
 
 import android.content.Context;
@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
-import com.tkdev.ironmanstash.infinity_stones.stones.InfinityFragment;
+import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,9 +44,6 @@ public class SingleStoneDetail extends Fragment {
     private String passwordInput;
     private String passwordExpected;
 
-    private StonesDbHelper dbHelper;
-    private SQLiteDatabase database;
-    private Cursor cursor;
 
     public static SingleStoneDetail newInstance(String name, int color, String quest, String password) {
         Bundle bundle = new Bundle();
@@ -114,9 +111,6 @@ public class SingleStoneDetail extends Fragment {
                             .replace(R.id.activity_container, InfinityFragment.newInstance(name))
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
-
-//                    String entryCount = String.valueOf(getActivity().getSupportFragmentManager().getBackStackEntryCount());
-//                    Toast.makeText(getContext(), "Backstack entry count : " + entryCount  , Toast.LENGTH_SHORT).show();
 
                     Toast.makeText(getContext(), "Password correct, unlocked " + name , Toast.LENGTH_SHORT).show();
                 }else {

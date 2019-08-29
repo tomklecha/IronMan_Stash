@@ -1,14 +1,17 @@
-package com.tkdev.ironmanstash.infinity_stones.stones;
+package com.tkdev.ironmanstash.infinity_stones.fragments;
 
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
 import com.tkdev.ironmanstash.infinity_stones.database.StonesContract;
+import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStone;
+import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityStone;
 
 
-public class InfinityCursorWrapper extends CursorWrapper {
+public class OperationsWrapper extends CursorWrapper {
 
-    public InfinityCursorWrapper(Cursor cursor) {
+
+    public OperationsWrapper(Cursor cursor) {
         super(cursor);
     }
 

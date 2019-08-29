@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.stones;
+package com.tkdev.ironmanstash.infinity_stones.fragments.details;
 
 public class SingleStone {
 
@@ -10,35 +10,35 @@ public class SingleStone {
     public SingleStone() {
     }
 
-    String getName() {
+     String getName() {
         return name;
     }
 
-    void setName(String name) {
+     public void setName(String name) {
         this.name = name;
     }
 
-    int getColor() {
+     int getColor() {
         return color;
     }
 
-    void setColor(int color) {
+     public void setColor(int color) {
         this.color = color;
     }
 
-    String getQuest() {
+     String getQuest() {
         return quest;
     }
 
-    void setQuest(String quest) {
+     public void setQuest(String quest) {
         this.quest = quest;
     }
 
-    String getPassword() {
+     String getPassword() {
         return password;
     }
 
-    void setPassword(String password) {
+     public void setPassword(String password) {
         this.password = password;
     }
 }

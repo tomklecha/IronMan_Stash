@@ -83,12 +83,12 @@ public class StonesDbHelper extends SQLiteOpenHelper {
         db.insert(IF_TABLE, null, values);
     }
 
-    public void updateVisibility(SQLiteDatabase db, String stoneName) {
-
-        db.execSQL("UPDATE " + IF_TABLE + " SET " +
-                COLUMN_STONE_VISIBILITY + " = 0 WHERE "
-                + COLUMN_STONE_NAME + " = \"" + stoneName + "\"");
-
-
-    }
+//    public void updateVisibility(SQLiteDatabase db, String stoneName) {
+//
+//        db.execSQL("UPDATE " + IF_TABLE + " SET " +
+//                COLUMN_STONE_VISIBILITY + " = 0 WHERE "
+//                + COLUMN_STONE_NAME + " = \"" + stoneName + "\"");
+//
+//
+//    }
 }

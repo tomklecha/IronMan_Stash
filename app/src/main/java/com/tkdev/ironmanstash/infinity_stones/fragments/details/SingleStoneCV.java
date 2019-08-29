@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.details;
+package com.tkdev.ironmanstash.infinity_stones.fragments.details;
 
 
 import android.database.Cursor;
@@ -11,17 +11,15 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
+import com.tkdev.ironmanstash.infinity_stones.fragments.Operations;
 
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DETAIL_TABLE;
+import java.util.ArrayList;
+import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SingleStoneCV extends Fragment {
 
     StonesDbHelper dbHelper;
@@ -30,12 +28,13 @@ public class SingleStoneCV extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
     SingleStonePagerAdapter pagerAdapter;
+    List<SingleStone> singleStoneList = new ArrayList<>();
+    Operations operations;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_single_view, container, false);
 
         tabLayout = rootView.findViewById(R.id.tab_layout);
@@ -48,12 +47,10 @@ public class SingleStoneCV extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        operations = Operations.get(getContext());
+        singleStoneList = operations.getDetailStoneList();
 
-        dbHelper = new StonesDbHelper(getContext());
-        database = dbHelper.getReadableDatabase();
-        cursor = database.query(DETAIL_TABLE, null, null, null, null, null, null);
-
-        pagerAdapter = new SingleStonePagerAdapter(getChildFragmentManager(), cursor);
+        pagerAdapter = new SingleStonePagerAdapter(getChildFragmentManager(), singleStoneList);
 
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

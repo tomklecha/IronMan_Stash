@@ -1,7 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.stones;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.tkdev.ironmanstash.infinity_stones.fragments.allstones;
 
 public class InfinityStone {
 
@@ -10,30 +7,30 @@ public class InfinityStone {
     private int isVisible;
 
 
-     InfinityStone() {
+    public InfinityStone() {
     }
 
-     int getImageId() {
+    protected int getImageId() {
         return imageId;
     }
 
-    void setImageId(int imageId) {
+    public void setImageId(int imageId) {
         this.imageId = imageId;
     }
 
-     String getStoneName() {
+    protected String getStoneName() {
         return stoneName;
     }
 
-     void setStoneName(String stoneName) {
+    public void setStoneName(String stoneName) {
         this.stoneName = stoneName;
     }
 
-     int getIsVisible() {
+    protected int getIsVisible() {
         return isVisible;
     }
 
-     void setIsVisible(int isVisible) {
+    public void setIsVisible(int isVisible) {
         this.isVisible = isVisible;
     }
 
