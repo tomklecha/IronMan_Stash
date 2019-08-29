@@ -104,9 +104,9 @@ public class SingleStoneDetail extends Fragment {
             public void onClick(View v) {
                 passwordInput = passwordText.getText().toString();
 
-//                if (passwordInput.equals(passwordExpected)) {
+                if (passwordInput.equals(passwordExpected)) {
 
-//                    closeKeyboard();
+                    closeKeyboard();
                 ((AppCompatActivity)getContext()).getSupportFragmentManager().popBackStack("frag3", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     getActivity().getSupportFragmentManager()
@@ -115,11 +115,13 @@ public class SingleStoneDetail extends Fragment {
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
 
-                String entryCount = String.valueOf(getActivity().getSupportFragmentManager().getBackStackEntryCount());
-                Toast.makeText(getContext(), "Backstack entry count : " + entryCount  , Toast.LENGTH_SHORT).show();
+//                    String entryCount = String.valueOf(getActivity().getSupportFragmentManager().getBackStackEntryCount());
+//                    Toast.makeText(getContext(), "Backstack entry count : " + entryCount  , Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(getContext(), "Password correct, unlocked " + name + " in SSdetail", Toast.LENGTH_SHORT).show();
-//                }
+                    Toast.makeText(getContext(), "Password correct, unlocked " + name , Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

@@ -4,6 +4,8 @@
     android:id="@+id/infinity_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DCDCDC"
+
     android:orientation="vertical"
     tools:context=".infinity_stones.stones.InfinityFragment">
 
@@ -17,8 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingTop="50dp"
-            />
+            android:paddingTop="50dp" />
         <!--android:text="@string/infinity_stones_title" -->
 
 
@@ -26,8 +27,8 @@
             android:id="@+id/recycler_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="100dp"
             android:paddingStart="16dp"
+            android:paddingTop="100dp"
             android:paddingEnd="16dp">
 
         </android.support.v7.widget.RecyclerView>
@@ -37,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Button" />
+            android:text="@string/gather_button" />
 
     </FrameLayout>
 

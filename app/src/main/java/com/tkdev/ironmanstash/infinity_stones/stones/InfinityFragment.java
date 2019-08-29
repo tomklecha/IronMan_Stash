@@ -105,14 +105,6 @@ public class InfinityFragment extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        Toast.makeText(getContext(), "Password correct, unlocked " + name + " in OnResume", Toast.LENGTH_SHORT).show();
-
-    }
-
     private void reloadView() {
         if (arguments == null) {
             operations = InfinityStonesOperations.get(getContext());

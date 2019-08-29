@@ -31,9 +31,7 @@
     <string name="reality_stone_password">realitypass</string>
     <string name="mind_stone_password">mindpass</string>
     <string name="space_stone_password">spacepass</string>
-
-
-
+    <string name="gather_button">Gather Infinity Stones !!!</string>
 
 
 </resources>

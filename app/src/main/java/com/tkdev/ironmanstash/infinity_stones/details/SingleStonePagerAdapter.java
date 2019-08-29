@@ -64,7 +64,7 @@ public class SingleStonePagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (cursor.moveToPosition(position)) {
-            String title = String.valueOf(cursor.getInt(0));
+            String title = String.valueOf(cursor.getPosition() + 1);
             return title;
 
         }

@@ -54,7 +54,7 @@ public class InfinityStonesOperations {
             while (!cursorWrapper.isAfterLast()){
                 if(cursorWrapper.getInfinityStoneName().equals(name)) {
                     updateDbVisibility(name);
-                    Toast.makeText(get(context).context, "done", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(get(context).context, "done", Toast.LENGTH_SHORT).show();
                     break;
                 }
 
@@ -71,7 +71,7 @@ public class InfinityStonesOperations {
             while (!cursorWrapper.isAfterLast()){
                 if(cursorWrapper.getDetailStoneName().equals(name)) {
                     deleteDbStone(name);
-                    Toast.makeText(get(context).context, "done detail", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(get(context).context, "done detail", Toast.LENGTH_SHORT).show();
                     break;
                 }
 

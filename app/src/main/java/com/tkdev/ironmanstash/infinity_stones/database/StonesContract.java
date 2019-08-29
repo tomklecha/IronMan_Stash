@@ -34,12 +34,12 @@ public class StonesContract {
     static final String MIND_STONE_QUEST = "HERE IS THE MIGHTY QUEST FOR MIND STONE";
     static final String SPACE_STONE_QUEST = "HERE IS THE MIGHTY QUEST FOR SPACE STONE";
 
-    static final int POWER_STONE_IMAGE = android.R.drawable.ic_lock_lock;
-    static final int TIME_STONE_IMAGE = android.R.drawable.ic_menu_report_image;
+    static final int POWER_STONE_IMAGE = android.R.drawable.radiobutton_on_background;
+    static final int TIME_STONE_IMAGE = android.R.drawable.sym_action_chat;
     static final int SOUL_STONE_IMAGE = android.R.drawable.sym_call_missed;
-    static final int REALITY_STONE_IMAGE = android.R.drawable.arrow_down_float;
-    static final int MIND_STONE_IMAGE = android.R.drawable.arrow_up_float;
-    static final int SPACE_STONE_IMAGE = android.R.drawable.dialog_frame;
+    static final int REALITY_STONE_IMAGE = android.R.drawable.presence_busy;
+    static final int MIND_STONE_IMAGE = android.R.drawable.star_on;
+    static final int SPACE_STONE_IMAGE = android.R.drawable.sym_action_call;
 
     public static final String DETAIL_TABLE = "details";
 
