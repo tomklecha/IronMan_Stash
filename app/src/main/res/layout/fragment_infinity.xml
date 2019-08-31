@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/infinity_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCDCDC"
 
-    android:orientation="vertical"
     tools:context=".infinity_stones.fragments.allstones.InfinityFragment">
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/frame_container"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
         <TextView
             android:id="@+id/infinity_stones_title_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingTop="50dp" />
-        <!--android:text="@string/infinity_stones_title" -->
-
+            android:padding="16dp"
+            android:text="@string/infinity_stones_title"
+            android:textAlignment="center" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:paddingTop="100dp"
             android:paddingEnd="16dp">
 
         </android.support.v7.widget.RecyclerView>
@@ -40,6 +39,14 @@
             android:layout_gravity="center"
             android:text="@string/gather_button" />
 
-    </FrameLayout>
+        <ImageView
+            android:visibility="invisible"
+            android:id="@+id/infinity_gauntlet"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:contentDescription="infinity_gauntlet"
+            android:src="@drawable/infinity_gauntlet" />
+    </LinearLayout>
 
 </FrameLayout>

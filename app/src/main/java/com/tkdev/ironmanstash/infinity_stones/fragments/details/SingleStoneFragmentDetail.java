@@ -4,6 +4,7 @@ package com.tkdev.ironmanstash.infinity_stones.fragments.details;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -110,7 +111,8 @@ public class SingleStoneFragmentDetail extends Fragment {
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
 
-                    Toast.makeText(getContext(), "Password correct, unlocked " + name , Toast.LENGTH_SHORT).show();
+                    Snackbar.make(getView(),"Password correct, unlocked " + name + " !", Snackbar.LENGTH_SHORT).show();
+
                 }else {
                     Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();
                 }

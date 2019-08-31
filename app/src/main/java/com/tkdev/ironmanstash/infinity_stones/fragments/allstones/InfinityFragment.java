@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.fragments.Operations;
@@ -30,6 +31,7 @@ public class InfinityFragment extends Fragment {
     public static final String FRAGMENT_TAG = "fragment";
 
     private InfinityAdapter infinityAdapter;
+    private ImageView gauntletImage;
     private List<InfinityStone> infinityStones = new ArrayList<>();
     private Operations operations;
     private RecyclerView recyclerView;
@@ -72,6 +74,7 @@ public class InfinityFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_infinity, container, false);
 
+        gauntletImage = rootView.findViewById(R.id.infinity_gauntlet);
         gatherButton = rootView.findViewById(R.id.gather_button);
         recyclerView = rootView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -84,7 +87,10 @@ public class InfinityFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         createViews();
+
+
 
         gatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +123,15 @@ public class InfinityFragment extends Fragment {
         infinityStones = operations.getInfinityStoneList();
         infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
         recyclerView.setAdapter(infinityAdapter);
+        setVisibility();
+    }
+
+    private void setVisibility(){
+
+        if(operations.gauntletVisibility()){
+            gauntletImage.setVisibility(View.VISIBLE);
+            gatherButton.setVisibility(View.INVISIBLE);
+        }
     }
 }
 

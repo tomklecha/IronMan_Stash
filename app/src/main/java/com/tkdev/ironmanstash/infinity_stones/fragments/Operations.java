@@ -3,6 +3,8 @@ package com.tkdev.ironmanstash.infinity_stones.fragments;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStone;
@@ -130,6 +132,16 @@ public class Operations {
     private void deleteDbStone(String name){
         database.execSQL("DELETE FROM " + DETAIL_TABLE + " WHERE "
                 + COLUMN_DETAIL_NAME + " = \"" + name + "\"");
+
+    }
+
+    public boolean gauntletVisibility() {
+
+        if (getDetailStoneList().isEmpty()){
+            return true;
+          }
+        return false;
+
     }
 
 
