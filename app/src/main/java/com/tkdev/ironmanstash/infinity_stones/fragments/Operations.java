@@ -3,6 +3,7 @@ package com.tkdev.ironmanstash.infinity_stones.fragments;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -45,6 +46,7 @@ public class Operations {
 
         return new OperationsWrapper(cursor);
     }
+
 
     public void updateStones(String name){
 
@@ -108,8 +110,6 @@ public class Operations {
 
         OperationsWrapper cursorWrapper = queryStones(DETAIL_TABLE);
 
-
-//        TODO all getters for each element to list
         try{
             cursorWrapper.moveToFirst();
             while (!cursorWrapper.isAfterLast()){
@@ -143,6 +143,7 @@ public class Operations {
         return false;
 
     }
+
 
 
 }

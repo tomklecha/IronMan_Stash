@@ -1,6 +1,7 @@
 package com.tkdev.ironmanstash.infinity_stones.fragments.allstones;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -26,9 +27,8 @@ import java.util.List;
  */
 public class InfinityFragment extends Fragment {
 
-    public static final int STONE_INVISIBLE = View.INVISIBLE;
-    public static final int STONE_VISIBLE = View.VISIBLE;
     public static final String FRAGMENT_TAG = "fragment";
+    public static final String STONE_NAME = "stoneNameNewInstance";
 
     private InfinityAdapter infinityAdapter;
     private ImageView gauntletImage;
@@ -37,7 +37,8 @@ public class InfinityFragment extends Fragment {
     private RecyclerView recyclerView;
     private Button gatherButton;
     private Bundle arguments;
-    private String name;
+    private String stoneNameNewInstance;
+    private MediaPlayer mediaPlayer;
 
     public InfinityFragment() {
     }
@@ -45,7 +46,7 @@ public class InfinityFragment extends Fragment {
     public static InfinityFragment newInstance(String name) {
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable("NAME", name);
+        bundle.putSerializable(STONE_NAME, name);
 
         InfinityFragment fragment = new InfinityFragment();
         fragment.setArguments(bundle);
@@ -60,9 +61,9 @@ public class InfinityFragment extends Fragment {
         super.onCreate(savedInstanceState);
         arguments = getArguments();
         if (arguments != null) {
-            name = (String) getArguments().getSerializable("NAME");
+            stoneNameNewInstance = (String) getArguments().getSerializable(STONE_NAME);
             operations = Operations.get(getContext());
-            operations.updateStones(name);
+            operations.updateStones(stoneNameNewInstance);
 
 
         }
@@ -89,8 +90,7 @@ public class InfinityFragment extends Fragment {
 
 
         createViews();
-
-
+        setVisibility();
 
         gatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +104,23 @@ public class InfinityFragment extends Fragment {
                         .commit();
 
 
+            }
+        });
+
+        gauntletImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.thanos_snap_sound_effect);
+                mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        if(mediaPlayer!=null){
+                            mediaPlayer.release();
+                        }
+                        mediaPlayer=null;
+                    }
+                });
             }
         });
 
@@ -123,7 +140,6 @@ public class InfinityFragment extends Fragment {
         infinityStones = operations.getInfinityStoneList();
         infinityAdapter = new InfinityAdapter(getContext(), infinityStones);
         recyclerView.setAdapter(infinityAdapter);
-        setVisibility();
     }
 
     private void setVisibility(){

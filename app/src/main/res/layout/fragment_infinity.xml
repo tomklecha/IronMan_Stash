@@ -39,8 +39,9 @@
             android:layout_gravity="center"
             android:text="@string/gather_button" />
 
+        <!--android:visibility="invisible"-->
+
         <ImageView
-            android:visibility="invisible"
             android:id="@+id/infinity_gauntlet"
             android:layout_width="200dp"
             android:layout_height="200dp"
