@@ -100,9 +100,9 @@ public class SingleStoneFragmentDetail extends Fragment {
             public void onClick(View v) {
                 passwordInput = passwordText.getText().toString();
 
-                if (passwordInput.equals(passwordExpected)) {
+//                if (passwordInput.equals(passwordExpected)) {
 
-                    closeKeyboard();
+//                    closeKeyboard();
                 getActivity().getSupportFragmentManager().popBackStack(FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     getActivity().getSupportFragmentManager()
@@ -113,9 +113,9 @@ public class SingleStoneFragmentDetail extends Fragment {
 
                     Snackbar.make(getView(),"Password correct, unlocked " + name + " !", Snackbar.LENGTH_SHORT).show();
 
-                }else {
-                    Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();
-                }
+//                }else {
+//                    Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();
+//                }
 
             }
         });

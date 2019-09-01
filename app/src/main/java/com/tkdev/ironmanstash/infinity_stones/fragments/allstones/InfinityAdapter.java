@@ -50,14 +50,9 @@ public class InfinityAdapter extends RecyclerView.Adapter<InfinityAdapter.Infini
         public InfinityViewHolder(View view) {
             super(view);
             stoneImageView = view.findViewById(R.id.recycler_stone_image);
-
             stoneTextView = view.findViewById(R.id.recycler_stone_name);
-            stoneTextView.setText(R.string.power_stone_quest);
-        }
-    }
 
-    public void setList(List<InfinityStone> list) {
-        this.infinityStones = list;
+        }
     }
 }
 // CURSOR adapter
