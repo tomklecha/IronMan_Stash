@@ -34,8 +34,9 @@ public class SingleStoneFragmentDetail extends Fragment {
 
     private Button confirmButton;
     private EditText passwordText;
-    private TextView textView;
+    private TextView titleStoneView;
     private TextView questView;
+    private TextView enterView;
 
     private String name;
     private int color;
@@ -74,17 +75,26 @@ public class SingleStoneFragmentDetail extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_stone_detail, container, false);
         view.setBackgroundColor(getResources().getColor(color));
-        textView = view.findViewById(R.id.stone_text_view);
+        titleStoneView = view.findViewById(R.id.stone_title_text_view);
         questView = view.findViewById(R.id.quest_text_view);
         confirmButton = view.findViewById(R.id.confirm_button);
+        enterView = view.findViewById(R.id.title_enter_password);
         passwordText = view.findViewById(R.id.password_input);
+        titleStoneView.setText(name);
 
-        textView.setText(name);
-        textView.setBackgroundColor(getResources().getColor(color) + 0x00111111);
-        questView.setBackgroundColor(getResources().getColor(color) + 0x00111111);
+        changeBackgrounds();
+
 
 
         return view;
+    }
+
+    private void changeBackgrounds() {
+        int converter = 0x00222222;
+        titleStoneView.setBackgroundColor(getResources().getColor(color) + converter);
+        enterView.setBackgroundColor(getResources().getColor(color) + converter);
+        questView.setBackgroundColor(getResources().getColor(color) + converter);
+
     }
 
     @Override
@@ -92,7 +102,7 @@ public class SingleStoneFragmentDetail extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        textView.setText(name);
+        titleStoneView.setText(name);
         questView.setText(quest);
 
 
@@ -101,9 +111,9 @@ public class SingleStoneFragmentDetail extends Fragment {
             public void onClick(View v) {
                 passwordInput = passwordText.getText().toString();
 
-//                if (passwordInput.equals(passwordExpected)) {
+                if (passwordInput.equals(passwordExpected)) {
 
-//                    closeKeyboard();
+                    closeKeyboard();
                 getActivity().getSupportFragmentManager().popBackStack(FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     getActivity().getSupportFragmentManager()
@@ -117,9 +127,9 @@ public class SingleStoneFragmentDetail extends Fragment {
                             .make(getView(),"Password correct, unlocked " + name + " !", Snackbar.LENGTH_SHORT)
                             .show();
 
-//                }else {
-//                    Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();
-//                }
+                }else {
+                    Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

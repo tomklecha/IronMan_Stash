@@ -16,10 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
+            android:clipToPadding="true"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/stone_text_view"
+                android:id="@+id/stone_title_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -49,11 +50,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
+                android:padding="4dp"
+                android:layout_margin="8dp"
                 android:text="Enter password AVENGER"
                 android:textAlignment="center" />
 
             <EditText
+                android:padding="4dp"
                 android:id="@+id/password_input"
+                android:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

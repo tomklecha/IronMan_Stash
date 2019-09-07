@@ -58,7 +58,7 @@ public class StarkFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        backgroundSong();
+//        backgroundSong();
 
         helmetView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class StarkFragment extends Fragment {
                 helmetView.setOnClickListener(null);
                 scrollView.setVisibility(View.VISIBLE);
                 ObjectAnimator scrollAnimator = ObjectAnimator.ofInt(scrollView, "scrollY", scrollView.getChildAt(0).getHeight() - scrollView.getHeight());
-                scrollAnimator.setDuration(10000);
+                scrollAnimator.setDuration(100);
                 scrollAnimator.setInterpolator(new LinearInterpolator());
                 scrollAnimator.start();
                 scrollAnimator.addListener(new AnimatorListenerAdapter() {

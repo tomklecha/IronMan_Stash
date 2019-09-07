@@ -1,8 +1,6 @@
 package com.tkdev.ironmanstash.infinity_stones.fragments.details;
 
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -35,7 +33,7 @@ public class SingleStoneViewPager extends Fragment {
 
         tabLayout = rootView.findViewById(R.id.tab_layout);
         viewPager = rootView.findViewById(R.id.stone_vp_pages);
-
+        viewPager.setPageTransformer(true, new ViewPagerTransformer());
         return rootView;
     }
 

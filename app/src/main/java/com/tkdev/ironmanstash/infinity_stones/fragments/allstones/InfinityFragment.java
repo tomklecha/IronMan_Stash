@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,7 +35,6 @@ public class InfinityFragment extends Fragment {
 
     public static final String FRAGMENT_TAG = "fragment";
     public static final String STONE_NAME = "stoneNameNewInstance";
-    public static int counter = 0;
 
     private Operations operations;
     private InfinityAdapter infinityAdapter;
@@ -71,7 +71,6 @@ public class InfinityFragment extends Fragment {
             stoneNameNewInstance = (String) getArguments().getSerializable(STONE_NAME);
             operations = Operations.get(getContext());
             operations.updateStones(stoneNameNewInstance);
-            counter++;
         }
     }
 
@@ -86,6 +85,8 @@ public class InfinityFragment extends Fragment {
         gauntletImage.setVisibility(View.INVISIBLE);
         gatherButton = rootView.findViewById(R.id.gather_button);
         recyclerView = rootView.findViewById(R.id.recycler_view);
+//        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         return rootView;
@@ -113,9 +114,9 @@ public class InfinityFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                getFragmentManager()
+               getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.infinity_fragment_container, new SingleStoneViewPager(), FRAGMENT_TAG)
+                        .replace(R.id.activity_container, new SingleStoneViewPager(), FRAGMENT_TAG)
                         .addToBackStack(FRAGMENT_TAG)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
@@ -191,6 +192,8 @@ public class InfinityFragment extends Fragment {
             gatherButton.setVisibility(View.GONE);
         }
     }
+
+
 }
 
 
