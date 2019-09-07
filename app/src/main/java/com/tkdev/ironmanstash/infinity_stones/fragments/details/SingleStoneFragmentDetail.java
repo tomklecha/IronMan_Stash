@@ -74,13 +74,14 @@ public class SingleStoneFragmentDetail extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_stone_detail, container, false);
         view.setBackgroundColor(getResources().getColor(color));
-
         textView = view.findViewById(R.id.stone_text_view);
         questView = view.findViewById(R.id.quest_text_view);
         confirmButton = view.findViewById(R.id.confirm_button);
         passwordText = view.findViewById(R.id.password_input);
 
         textView.setText(name);
+        textView.setBackgroundColor(getResources().getColor(color) + 0x00111111);
+        questView.setBackgroundColor(getResources().getColor(color) + 0x00111111);
 
 
         return view;
@@ -111,7 +112,10 @@ public class SingleStoneFragmentDetail extends Fragment {
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
 
-                    Snackbar.make(getView(),"Password correct, unlocked " + name + " !", Snackbar.LENGTH_SHORT).show();
+
+                    Snackbar
+                            .make(getView(),"Password correct, unlocked " + name + " !", Snackbar.LENGTH_SHORT)
+                            .show();
 
 //                }else {
 //                    Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();

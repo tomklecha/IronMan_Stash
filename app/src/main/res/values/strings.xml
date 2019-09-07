@@ -35,6 +35,22 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agree_button">Whatever it takes !</string>
+    <string name="title_scroll_view">Hey Kid\.\.\.</string>
+
+    <string name="story_scroll_view">\tIf you read to this, it means that Dr. Strange story finished good and i understood why he didn\'t want to tell me how exactly it will finish.\n\n
+        When we prepared to fight Thanos, i was aware that your 30 anniversary is soon. Some thoughts in my mind told me i need to prepare for that.\n\n
+        While Avengers were busy planning the last battle, i used the Infinity Stones to hide the stash in secure place. \n\n
+        As you might understand by this moment i want you to collect all of them to receive the ultimate stash. I left you small hints to
+        every single stone how they should be collected in your reality.\n\n
+        All of the data how to collect them is hidden is this phone.\n
+        On purpose network connection is of, in case somebody might want to track you.\n
+        Some of task are more challenging. That was the only way to be sure non other person will collect things which are waiting for you.\n\n
+        You got chance to take them all back.\n\n
+        So, will you do it? \n\n
+
+        \.\.\.whatever it takes ? \.\.\.
+    </string>
 
 
 </resources>
