@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimaryDark">#555555</color>
 
-    <color name="PowerStone">#ffaa66cc</color>
-    <color name="TimeStone">#ff669900</color>
-    <color name="SoulStone">#ffdd8800</color>
-    <color name="RealityStone">#ffcc0000</color>
-    <color name="MindStone">#ffdddd00</color>
-    <color name="SpaceStone">#ff0077cc</color>
+
+    <color name="tabLayoutBackground">#999999</color>
+    <color name="tabLayoutNode">#D81B60</color>
+    <color name="powerStoneColor">#ffaa66cc</color>
+    <color name="timeStoneColor">#ff669900</color>
+    <color name="soulStoneColor">#ffdd8800</color>
+    <color name="realityStoneColor">#ffcc0000</color>
+    <color name="mindStoneColor">#ffdddd00</color>
+    <color name="spaceStoneColor">#ff0077cc</color>
+    <color name="scrollBackground">#ff99ffff</color>
 
 
 </resources>

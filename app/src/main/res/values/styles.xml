@@ -2,6 +2,10 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--Top Color-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <!--Button Color - colorAccent-->
 
     </style>
 

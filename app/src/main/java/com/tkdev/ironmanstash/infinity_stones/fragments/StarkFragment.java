@@ -4,6 +4,7 @@ package com.tkdev.ironmanstash.infinity_stones.fragments;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragment;
@@ -46,9 +48,11 @@ public class StarkFragment extends Fragment {
         scrollView = rootView.findViewById(R.id.scroll_view);
         agreeButton = rootView.findViewById(R.id.agree_button);
 
-        scrollView.setVisibility(View.INVISIBLE);
+        scrollView.setAlpha(0.0f);
+        scrollView.setBackgroundColor(getResources().getColor(R.color.scrollBackground));
         agreeButton.setAlpha(0.0f);
         helmetView.setImageResource(R.drawable.ironman_helmet_r);
+        helmetView.setAlpha(0.2f);
 
 
         return rootView;
@@ -58,23 +62,33 @@ public class StarkFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        backgroundSong();
+        backgroundSong();
 
         helmetView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 helmetView.setOnClickListener(null);
-                scrollView.setVisibility(View.VISIBLE);
-                ObjectAnimator scrollAnimator = ObjectAnimator.ofInt(scrollView, "scrollY", scrollView.getChildAt(0).getHeight() - scrollView.getHeight());
-                scrollAnimator.setDuration(100);
-                scrollAnimator.setInterpolator(new LinearInterpolator());
-                scrollAnimator.start();
-                scrollAnimator.addListener(new AnimatorListenerAdapter() {
+                getView().setBackgroundColor(0xFF222222);
+                helmetView.animate().alpha(1.0f).setDuration(1500);
+                scrollView.animate().alpha(1.0f).setDuration(3000).setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        agreeButton.animate().alpha(1.0f).setDuration(5000);
+                        super.onAnimationEnd(animation);
+                        ObjectAnimator scrollAnimator = ObjectAnimator.ofInt(scrollView, "scrollY", scrollView.getChildAt(0).getHeight() - scrollView.getHeight());
+                        scrollAnimator.setDuration(30000);
+                        scrollAnimator.setInterpolator(new LinearInterpolator());
+                        scrollAnimator.start();
+                        scrollAnimator.addListener(new AnimatorListenerAdapter() {
+
+
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                agreeButton.animate().alpha(1.0f).setDuration(5000);
+                            }
+                        });
                     }
                 });
+
             }
         });
 
@@ -97,23 +111,17 @@ public class StarkFragment extends Fragment {
 
     private void backgroundSong() {
         mediaPlayer = MediaPlayer.create(getContext(), R.raw.endgame);
+        mediaPlayer.seekTo(119700);
         mediaPlayer.start();
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                if (mediaPlayer != null) {
-                    mediaPlayer.release();
-                }
-                mediaPlayer = null;
 
-            }
-        });
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        backgroundSong();
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+        }
 
     }
 
@@ -121,8 +129,25 @@ public class StarkFragment extends Fragment {
     public void onStop() {
         super.onStop();
         if (mediaPlayer != null) {
+            mediaPlayer.pause();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mediaPlayer != null) {
             mediaPlayer.release();
         }
         mediaPlayer = null;
+
     }
 }

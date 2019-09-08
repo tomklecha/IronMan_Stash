@@ -5,15 +5,13 @@
     android:id="@+id/infinity_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDDDDD"
-
     tools:context=".infinity_stones.fragments.allstones.InfinityFragment">
 
     <LinearLayout
         android:id="@+id/frame_container"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/infinity_stones_title_page"
@@ -50,5 +48,6 @@
             android:contentDescription="infinity_gauntlet"
             android:src="@drawable/infinity_gauntlet" />
     </LinearLayout>
+-->
 
 </FrameLayout>

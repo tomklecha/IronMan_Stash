@@ -50,6 +50,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
                     android:text="@string/story_scroll_view"
+                    android:padding="4dp"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textSize="18sp" />

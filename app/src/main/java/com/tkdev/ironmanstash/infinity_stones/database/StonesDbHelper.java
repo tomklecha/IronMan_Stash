@@ -31,8 +31,8 @@ public class StonesDbHelper extends SQLiteOpenHelper {
                 COLUMN_DETAIL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_DETAIL_NAME + " TEXT NOT NULL, " +
                 COLUMN_DETAIL_COLOR + " INTEGER NOT NULL, " +
-                COLUMN_DETAIL_QUEST + " TEXT NOT NULL, " +
-                COLUMN_DETAIL_PASSWORD + " TEXT NOT NULL" +
+                COLUMN_DETAIL_QUEST + " INTEGER NOT NULL, " +
+                COLUMN_DETAIL_PASSWORD + " INTEGER NOT NULL" +
                 ")");
 
         insertDetail(db, POWER_STONE, POWER_STONE_COLOR, POWER_STONE_QUEST, POWER_STONE_PASSWORD);
@@ -64,7 +64,7 @@ public class StonesDbHelper extends SQLiteOpenHelper {
 
     }
 
-    private void insertDetail(SQLiteDatabase db, String name, int color, String quest, String password) {
+    private void insertDetail(SQLiteDatabase db, String name, int color, int quest, int password) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_DETAIL_NAME, name);
         values.put(COLUMN_DETAIL_COLOR, color);

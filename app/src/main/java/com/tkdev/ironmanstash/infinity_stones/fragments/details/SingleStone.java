@@ -4,41 +4,41 @@ public class SingleStone {
 
     private String name;
     private int color;
-    private String quest;
-    private String password;
+    private int quest;
+    private int password;
 
     public SingleStone() {
     }
 
-     String getName() {
+    String getName() {
         return name;
     }
 
-     public void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-     int getColor() {
+    int getColor() {
         return color;
     }
 
-     public void setColor(int color) {
+    public void setColor(int color) {
         this.color = color;
     }
 
-     String getQuest() {
+    int getQuest() {
         return quest;
     }
 
-     public void setQuest(String quest) {
+    public void setQuest(int quest) {
         this.quest = quest;
     }
 
-     String getPassword() {
+    int getPassword() {
         return password;
     }
 
-     public void setPassword(String password) {
+    public void setPassword(int password) {
         this.password = password;
     }
 }

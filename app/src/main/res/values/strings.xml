@@ -1,55 +1,98 @@
 <resources>
-    <string name="app_name">IronManStash</string>
+    <string name="app_name">Theo\'s stash</string>
 
     <string name="infinity_stones_title">Collect all infinity stones</string>
-    <string name="single_stone_title">Stone Title</string>
+    <string name="single_stone_title">Stone title</string>
     <string name="button_gather_stones">Gather the Infinity Stones !!!</string>
     <string name="menu_button">Gather infinity stones !</string>
 
     <string name="power_stone_quest">
-
+        \n\n\n
+        \tI know strength is one on your main skills, but Evil in  galaxies are much stronger than expected\.
+        As a proof of your strength, enhance Hulks power\.\n
+        You need to push you body above the ground for a 100 of times,
+        in limit of magic 30 minutes\.
+        \n\n
+        Avenger Hulk - Jordi
     </string>
     <string name="time_stone_quest">
-
+        \n\n\n
+        \tFor the time of realizing your quest, you need the help of Ancient One to gather into your memories\.\n
+        Show to the world your youngest appearance to fool enemies, which are on your way to hunt you down\.
+                \n\n
+        Avenger Ancient One - Tiziana
     </string>
     <string name="soul_stone_quest">
+        \n\n\n
+        \tYou need to possess the power of Almighty God of Thunder - Thor\.\n
+        With the enchanted power of Stormbreaker you need to clear 30 anniversary challenge\.\n
+        You need to achieve "3" -> "0"
+                \n\n
+        Avenger Thor - Tomasz
 
     </string>
     <string name="reality_stone_quest">
-
+        \n\n\n
+        \tThis one is the toughest\.
+        You need to collect all previous stones before reaching to this one\.\n
+        All Avengers need to be with you, and combined power from all you will allow
+        to gain the full potential of your work\.\n
+        Gather together by night, throwing small white galaxies into the ponds of next day amnesia
+          \n\n
+        Avenger Black Widow - Tiziana
     </string>
     <string name="mind_stone_quest">
+        \n\n\n
+        This require an absolute mind knowledge. The password to collect this stone is simply answer to the riddle\.\n\n\n
+        \"The poor people have me, the rich people want me\. If you eat me, you will die\"\.
+         \n\n
+        Avenger Scarlet Witch - Maria
 
     </string>
     <string name="space_stone_quest">
-
+        \n\n\n
+       You saw how Thor look now\.\.\. All because of the beer\. You need to travel through all universe
+        to get him back, before he will collapse\.
+        While in \"Meantime\" he will grab some beers
+         \n\n
+        Avenger Thor - Tomasz
     </string>
 
-    <string name="power_stone_password">powerpass</string>
-    <string name="time_stone_password">timepass</string>
-    <string name="soul_stone_password">soulpass</string>
-    <string name="reality_stone_password">realitypass</string>
-    <string name="mind_stone_password">mindpass</string>
-    <string name="space_stone_password">spacepass</string>
+    <string name="power_stone_password">hulkwillsmash</string>
+    <string name="time_stone_password">ihavecometobargain</string>
+    <string name="soul_stone_password">iamstillworthy</string>
+    <string name="reality_stone_password">avengersassembleyaaa</string>
+    <string name="mind_stone_password">asoulforasoul</string>
+    <string name="space_stone_password">noobmaster69</string>
     <string name="gather_button">Gather Infinity Stones !!!</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="agree_button">Whatever it takes !</string>
     <string name="title_scroll_view">Hey Kid\.\.\.</string>
 
-    <string name="story_scroll_view">\tIf you read to this, it means that Dr. Strange story finished good and i understood why he didn\'t want to tell me how exactly it will finish.\n\n
+    <string name="story_scroll_view">
+        \t
+        If you read to this, it means that Dr. Strange story finished good and i understood why he didn\'t want to tell me how exactly it will finish.\n\n
         When we prepared to fight Thanos, i was aware that your 30 anniversary is soon. Some thoughts in my mind told me i need to prepare for that.\n\n
         While Avengers were busy planning the last battle, i used the Infinity Stones to hide the stash in secure place. \n\n
-        As you might understand by this moment i want you to collect all of them to receive the ultimate stash. I left you small hints to
-        every single stone how they should be collected in your reality.\n\n
+
+        As you might understand by this moment i want you to collect all of them to receive the ultimate stash.
         All of the data how to collect them is hidden is this phone.\n
-        On purpose network connection is of, in case somebody might want to track you.\n
+        On purpose network connection is off, in case somebody might want to track you.\n
+        I left you small hints to every single stone how they should be collected in your reality.\n\n
         Some of task are more challenging. That was the only way to be sure non other person will collect things which are waiting for you.\n\n
-        You got chance to take them all back.\n\n
+        To achieve the password to collect the stone, contact with the person your Avenger friend for a confirmation of the quest.
+        \n\n
+        Most important thing, all of this tasks you need to finish till, as \"Earth, Wind and Fire\" used to sing:
+        \"Do you remember, 21st night of September ?\"
+        \n\n
         So, will you do it? \n\n
 
         \.\.\.whatever it takes ? \.\.\.
+    </string>
+    <string name="bday_wishes">
+        That about it Theo, continue the Journey with your Avengers and Happy 30\'s\. Hope you enjoyed your quest\. The stash is yours, use is wisely\.
+        \n\nI am proud of You\.
+        \n\nHappy Birthday Malaka \!\!\!
+    \n\n Let\'s the party begin \!
     </string>
 
 

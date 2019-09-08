@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="150dp"
     android:layout_height="150dp"
-    android:background="#EEEEEE"
     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/recycler_stone_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="bottom"
+        android:contentDescription="stone_image"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/recycler_stone_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:fontFamily="sans-serif-light"
-        android:lineSpacingExtra="36sp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-smallcaps"
         android:padding="4dp"
         android:text="@string/single_stone_title"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp"
-        android:textStyle="italic" />
-
-    <ImageView
-        android:id="@+id/recycler_stone_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:contentDescription="stone_image"
-        android:padding="16dp"
-        app:srcCompat="@drawable/mind_stone" />
-</LinearLayout>
+        android:textStyle="bold|italic" />
+</FrameLayout>

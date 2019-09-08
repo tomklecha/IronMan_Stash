@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Operations operations = Operations.get(this);
+
         if (operations.getDetailStoneList().size() == 6) {
             getSupportFragmentManager()
                     .beginTransaction()

@@ -36,8 +36,8 @@ public class OperationsWrapper extends CursorWrapper {
         String uuidString = getString(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_ID));
         String name = getString(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_NAME));
         int color = getInt(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_COLOR));
-        String quest = getString(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_QUEST));
-        String password = getString(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_PASSWORD));
+        int quest = getInt(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_QUEST));
+        int password = getInt(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_PASSWORD));
 
 
 //        TODO stone getter setter from database query 282 page
@@ -58,13 +58,11 @@ public class OperationsWrapper extends CursorWrapper {
         return name;
     }
 
-    protected String getDetailStoneName(){
+    protected String getDetailStoneName() {
         String name = getString(getColumnIndex(StonesContract.DetailStoneEntry.COLUMN_DETAIL_NAME));
 
         return name;
     }
-
-
 
 
 }

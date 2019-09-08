@@ -100,15 +100,15 @@ public class InfinityFragment extends Fragment {
 
         createViews();
         setVisibility();
-
-        titleView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getBaseContext().deleteDatabase("infinity_stones.db");
-                getActivity().finish();
-                System.exit(0);
-            }
-        });
+//
+//        titleView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getActivity().getBaseContext().deleteDatabase("infinity_stones.db");
+//                getActivity().finish();
+//                System.exit(0);
+//            }
+//        });
 
         gatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +130,7 @@ public class InfinityFragment extends Fragment {
             public void onClick(View v) {
 
                 mediaPlayer = MediaPlayer.create(getContext(), R.raw.thanos_snap_sound_effect);
+                mediaPlayer.seekTo(800);
                 mediaPlayer.start();
                 disappear();
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/finish_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".infinity_stones.fragments.finish_fragment.FinishFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Heres your present Biyach" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/wishes_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bday_wishes"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/love_you_3000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/we_love_you_3000" />
+    </LinearLayout>
 
 </FrameLayout>

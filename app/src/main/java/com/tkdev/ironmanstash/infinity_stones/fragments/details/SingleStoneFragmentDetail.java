@@ -40,12 +40,13 @@ public class SingleStoneFragmentDetail extends Fragment {
 
     private String name;
     private int color;
-    private String quest;
+    private int converter = 0x00222222;
+    private int quest;
     private String passwordInput;
-    private String passwordExpected;
+    private int passwordExpected;
 
 
-    public static SingleStoneFragmentDetail newInstance(String name, int color, String quest, String password) {
+    public static SingleStoneFragmentDetail newInstance(String name, int color, int quest, int password) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(NAME, name);
         bundle.putSerializable(COLOR, color);
@@ -65,8 +66,8 @@ public class SingleStoneFragmentDetail extends Fragment {
         super.onCreate(savedInstanceState);
         name = (String) getArguments().getSerializable(NAME);
         color = (int) getArguments().getSerializable(COLOR);
-        quest = (String) getArguments().getSerializable(QUEST);
-        passwordExpected = (String) getArguments().getSerializable(PASSWORD);
+        quest = (int) getArguments().getSerializable(QUEST);
+        passwordExpected = (int) getArguments().getSerializable(PASSWORD);
     }
 
     @Override
@@ -85,12 +86,10 @@ public class SingleStoneFragmentDetail extends Fragment {
         changeBackgrounds();
 
 
-
         return view;
     }
 
     private void changeBackgrounds() {
-        int converter = 0x00222222;
         titleStoneView.setBackgroundColor(getResources().getColor(color) + converter);
         enterView.setBackgroundColor(getResources().getColor(color) + converter);
         questView.setBackgroundColor(getResources().getColor(color) + converter);
@@ -111,28 +110,36 @@ public class SingleStoneFragmentDetail extends Fragment {
             public void onClick(View v) {
                 passwordInput = passwordText.getText().toString();
 
-                if (passwordInput.equals(passwordExpected)) {
+                if (passwordInput.equals(getResources().getString(passwordExpected))) {
 
                     closeKeyboard();
-                getActivity().getSupportFragmentManager().popBackStack(FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    getActivity().getSupportFragmentManager().popBackStack(FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     getActivity().getSupportFragmentManager()
-                           .beginTransaction()
+                            .beginTransaction()
                             .replace(R.id.activity_container, InfinityFragment.newInstance(name))
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                             .commit();
 
+                    confirmationSnackBar();
 
-                    Snackbar
-                            .make(getView(),"Password correct, unlocked " + name + " !", Snackbar.LENGTH_SHORT)
-                            .show();
-
-                }else {
+                } else {
                     Toast.makeText(getContext(), "Try once more Avenger !", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
+    }
+
+    private void confirmationSnackBar() {
+        Snackbar snackbar = Snackbar.make(getView(), "Password correct, unlocked " + name + " !", Snackbar.LENGTH_LONG);
+
+        View snackBarView = snackbar.getView();
+        TextView snackBarText = snackBarView.getRootView().findViewById(android.support.design.R.id.snackbar_text);
+        snackBarView.setBackgroundColor(getResources().getColor(color));
+        snackBarText.setTextColor((getResources().getColor(android.R.color.black)));
+        snackbar.show();
+
     }
 
     private void closeKeyboard() {
