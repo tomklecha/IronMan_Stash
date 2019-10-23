@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.tkdev.ironmanstash.R;
 
@@ -16,6 +17,7 @@ import com.tkdev.ironmanstash.R;
  */
 public class FinishFragment extends Fragment {
 
+    private ImageView weLoveYou;
     private MediaPlayer mediaPlayer;
 
     public FinishFragment() {
@@ -26,8 +28,10 @@ public class FinishFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_finish, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_finish, container, false);
+        weLoveYou = rootView.findViewById(R.id.love_you_3000);
+        return rootView;
     }
 
     @Override
@@ -35,6 +39,13 @@ public class FinishFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         bdaySong();
+
+        weLoveYou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(0);
+            }
+        });
     }
 
     private void bdaySong() {
