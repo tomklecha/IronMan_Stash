@@ -2,6 +2,7 @@ package com.tkdev.ironmanstash.infinity_stones.fragments.details;
 
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -22,9 +23,6 @@ import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragme
 
 import static com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragment.FRAGMENT_TAG;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SingleStoneFragmentDetail extends Fragment {
 
     public static final String NAME = "name";
@@ -40,7 +38,8 @@ public class SingleStoneFragmentDetail extends Fragment {
 
     private String name;
     private int color;
-    private int converter = 0x00222222;
+//    private int converter = 0x00222222;
+    private int converter = 0;
     private int quest;
     private String passwordInput;
     private int passwordExpected;
@@ -90,9 +89,12 @@ public class SingleStoneFragmentDetail extends Fragment {
     }
 
     private void changeBackgrounds() {
-        titleStoneView.setBackgroundColor(getResources().getColor(color) + converter);
-        enterView.setBackgroundColor(getResources().getColor(color) + converter);
-        questView.setBackgroundColor(getResources().getColor(color) + converter);
+//        TODO light up background colors
+
+        titleStoneView.setBackgroundColor(getResources().getColor(color));
+        enterView.setBackgroundColor(getResources().getColor(color));
+        questView.setBackgroundColor(getResources().getColor(color));
+
 
     }
 

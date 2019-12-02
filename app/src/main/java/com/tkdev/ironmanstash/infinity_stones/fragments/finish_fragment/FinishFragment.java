@@ -21,7 +21,6 @@ public class FinishFragment extends Fragment {
     private MediaPlayer mediaPlayer;
 
     public FinishFragment() {
-        // Required empty public constructor
     }
 
 

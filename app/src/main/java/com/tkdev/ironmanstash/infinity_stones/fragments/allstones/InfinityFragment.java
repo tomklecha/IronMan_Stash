@@ -28,9 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class InfinityFragment extends Fragment {
 
     public static final String FRAGMENT_TAG = "fragment";
@@ -85,7 +82,6 @@ public class InfinityFragment extends Fragment {
         gauntletImage.setVisibility(View.INVISIBLE);
         gatherButton = rootView.findViewById(R.id.gather_button);
         recyclerView = rootView.findViewById(R.id.recycler_view);
-//        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
@@ -100,15 +96,7 @@ public class InfinityFragment extends Fragment {
 
         createViews();
         setVisibility();
-//
-//        titleView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getActivity().getBaseContext().deleteDatabase("infinity_stones.db");
-//                getActivity().finish();
-//                System.exit(0);
-//            }
-//        });
+
 
         gatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,7 +141,6 @@ public class InfinityFragment extends Fragment {
     private void disappear() {
         long timer = 5000;
         titleView.animate().alpha(0.0f).setDuration(timer);
-        recyclerView.animate().alpha(0.0f).setDuration(timer);
         recyclerView.animate().alpha(0.0f).setDuration(timer);
         gauntletImage.animate().
                 alpha(0.0f)

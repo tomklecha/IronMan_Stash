@@ -23,20 +23,22 @@
                 android:id="@+id/stone_title_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Name Text"
                 android:textAlignment="center"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                tools:text="@string/single_stone_title" />
 
             <TextView
                 android:id="@+id/quest_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="16dp"
-                android:text="Quest Text"
-                android:textAlignment="center" />
+                android:padding="16dp"
+                android:textAlignment="center"
+                tools:text="@string/stone_detail_quest_text" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,22 +51,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:padding="4dp"
                 android:layout_margin="8dp"
-                android:text="Enter password AVENGER"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/title_enter_password"
                 android:textAlignment="center" />
 
             <EditText
-                android:padding="4dp"
                 android:id="@+id/password_input"
-                android:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="8dp"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:padding="8dp" />
 
             <Button
                 android:id="@+id/confirm_button"
@@ -72,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:text="CONFIRM" />
+                android:text="@string/confirm_button" />
         </LinearLayout>
     </LinearLayout>
 

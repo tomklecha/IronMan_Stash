@@ -3,14 +3,9 @@ package com.tkdev.ironmanstash.infinity_stones.fragments;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
-import android.view.View;
-import android.widget.ImageView;
-
 import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper;
 import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStone;
 import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityStone;
-
 import java.util.ArrayList;
 import java.util.List;
 

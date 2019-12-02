@@ -4,7 +4,6 @@ package com.tkdev.ironmanstash.infinity_stones.fragments;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,14 +16,10 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.tkdev.ironmanstash.R;
 import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class StarkFragment extends Fragment {
 
 
@@ -34,7 +29,6 @@ public class StarkFragment extends Fragment {
     private MediaPlayer mediaPlayer;
 
     public StarkFragment() {
-        // Required empty public constructor
     }
 
 

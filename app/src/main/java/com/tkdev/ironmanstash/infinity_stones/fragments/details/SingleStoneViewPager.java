@@ -52,6 +52,5 @@ public class SingleStoneViewPager extends Fragment {
 
     }
 
-
 }
 

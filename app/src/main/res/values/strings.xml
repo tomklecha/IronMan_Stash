@@ -1,13 +1,15 @@
 <resources>
     <string name="app_name">Theo\'s stash</string>
-
     <string name="infinity_stones_title">Collect all infinity stones</string>
     <string name="single_stone_title">Stone title</string>
+    <string name="stone_detail_quest_text">Quest Text</string>
     <string name="button_gather_stones">Gather the Infinity Stones !!!</string>
     <string name="menu_button">Gather infinity stones !</string>
+    <string name="gather_button">Gather Infinity Stones !!!</string>
+    <string name="agree_button">Whatever it takes !</string>
+
 
     <string name="power_stone_quest">
-        \n\n\n
         \tI know strength is one on your main skills, but Evil in the galaxy much stronger than expected\.
         As a proof of your strength, possess Hulks power\.\n
         You need to push your body above the ground for a 100 of times,
@@ -16,14 +18,12 @@
         Avenger Hulk - Julio
     </string>
     <string name="time_stone_quest">
-        \n\n\n
         \tFor the time of realizing your quest, you need the help of Ancient One to gather into your memories\.\n
         Show to the world your youngest appearance to fool enemies, which are on your way to hunt you down\.
                 \n\n
         Avenger Ancient One - Julio
     </string>
     <string name="soul_stone_quest">
-        \n\n\n
         \t To finish the quest, you need to reunion first with Almighty God of Thunder - Thor\.\n
         With the power of his powerful axe - Stormbreaker, you need to clear 30 anniversary challenge\.\n
         You need to achieve "3" -> "0"
@@ -33,14 +33,12 @@
     </string>
 
     <string name="mind_stone_quest">
-        \n\n\n
         This require an absolute mind knowledge. The password for this stone is within the riddle\.\n\n\n
         \"The poor people have me, the rich people want me\. If you eat me, you will die\"\.
          \n\n
 
     </string>
     <string name="space_stone_quest">
-        \n\n\n
        You saw how Thor look now\.\.\. All because of the beer\. You need to travel through all universe
         to get him back, before he will collapse\.
         While in \"Meantime\" he will grab some beers
@@ -48,7 +46,6 @@
         Avenger Thor (the fat one) - Tomasz
     </string>
     <string name="reality_stone_quest">
-        \n\n\n
         \tThis one is the toughest\.
         You need to collect all previous stones before reaching to this one\.\n
         All Avengers need to be with you, and combined power from all you will allow
@@ -58,14 +55,7 @@
           \n\n
         Avenger Black Widow - Tiziana
     </string>
-    <string name="power_stone_password">hulkwillsmash</string>
-    <string name="time_stone_password">ihavecometobargain</string>
-    <string name="soul_stone_password">iamstillworthy</string>
-    <string name="mind_stone_password">nothing</string>
-    <string name="space_stone_password">noobmaster69</string>
-    <string name="reality_stone_password">avengersassemblehere</string>
-    <string name="gather_button">Gather Infinity Stones !!!</string>
-    <string name="agree_button">Whatever it takes !</string>
+
     <string name="title_scroll_view">Hey Kid\.\.\.</string>
 
     <string name="story_scroll_view">
@@ -83,14 +73,24 @@
         \n\n
         So, will you do it? \n\n
 
-        \.\.\.whatever it takes ? \.\.\.
+        whatever it takes ? \.\.\.
     </string>
+
+    <string name="power_stone_password">hulkwillsmash</string>
+    <string name="time_stone_password">ihavecometobargain</string>
+    <string name="soul_stone_password">iamstillworthy</string>
+    <string name="mind_stone_password">nothing</string>
+    <string name="space_stone_password">noobmaster69</string>
+    <string name="reality_stone_password">avengersassemblehere</string>
+
     <string name="bday_wishes">
         That about it Theo, continue the Journey with your Avengers and Happy 30\'s\. Hope you enjoyed your quest\. The stash is yours, use is wisely\.
         \n\nI am proud of You\.
         \n\nHappy Birthday \!\!\!
     \n\n Let\'s the party begin \!
     </string>
+    <string name="confirm_button">confirm</string>
+    <string name="title_enter_password">Enter password AVENGER</string>
 
 
 </resources>
