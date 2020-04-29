@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/wishes_text"
+            android:id="@+id/wishesText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bday_wishes"
@@ -22,7 +22,7 @@
             android:textSize="24sp" />
 
         <ImageView
-            android:id="@+id/love_you_3000"
+            android:id="@+id/loveYouImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/we_love_you_3000" />

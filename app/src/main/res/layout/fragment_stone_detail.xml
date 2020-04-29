@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/stone_title_text_view"
+                android:id="@+id/stoneTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -32,7 +32,7 @@
                 tools:text="@string/single_stone_title" />
 
             <TextView
-                android:id="@+id/quest_text_view"
+                android:id="@+id/questTextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="16dp"
@@ -47,7 +47,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title_enter_password"
+                android:id="@+id/titleEnterPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -58,7 +58,7 @@
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/password_input"
+                android:id="@+id/passwordInputEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -69,7 +69,7 @@
                 android:padding="8dp" />
 
             <Button
-                android:id="@+id/confirm_button"
+                android:id="@+id/confirmButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
