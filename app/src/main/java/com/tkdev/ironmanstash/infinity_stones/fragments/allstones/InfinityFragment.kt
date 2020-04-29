@@ -43,9 +43,9 @@ class InfinityFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         if (arguments != null) {
-//            stoneNameNewInstance = arguments?.getSerializable(STONE_NAME)
-//            operations = activity?.baseContext?.let { Operations(it) }!!
-//            operations.updateStones(stoneNameNewInstance)
+            val stoneNameNewInstance = arguments?.getSerializable(STONE_NAME)
+            operations = activity?.baseContext?.let { Operations(it) }!!
+            operations.updateStones(stoneNameNewInstance as String)
         }
     }
 
@@ -101,13 +101,13 @@ class InfinityFragment : Fragment() {
 
     private fun createViews() {
         infinityGauntlet.visibility = View.INVISIBLE
-//        if (arguments == null) {
+        if (arguments == null) {
             operations = activity?.applicationContext?.let { Operations(it) }!!
             recyclerViews()
-//        }
-//        else {
-//            recyclerViews()
-//        }
+        }
+        else {
+            recyclerViews()
+        }
     }
 
     private fun recyclerViews() {
