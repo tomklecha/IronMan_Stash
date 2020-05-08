@@ -25,6 +25,19 @@ class StarkFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        startAnimation()
+
+        agreeButton.setOnClickListener {
+            parentFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.activity_container, InfinityFragment())
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .commit()
+            mediaPlayer?.release()
+        }
+    }
+
+    private fun startAnimation() {
         scrollView.alpha = 0.0f
         scrollView.setBackgroundColor(resources.getColor(R.color.scrollBackground))
         agreeButton.alpha = 0.0f
@@ -38,7 +51,7 @@ class StarkFragment : Fragment() {
                 override fun onAnimationEnd(animation: Animator) {
                     super.onAnimationEnd(animation)
                     val scrollAnimator = ObjectAnimator.ofInt(scrollView, "scrollY", scrollView.getChildAt(0).height - scrollView.height)
-                    scrollAnimator.duration = 30000
+                    scrollAnimator.duration = 300
                     scrollAnimator.interpolator = LinearInterpolator()
                     scrollAnimator.start()
                     scrollAnimator.addListener(object : AnimatorListenerAdapter() {
@@ -48,14 +61,6 @@ class StarkFragment : Fragment() {
                     })
                 }
             })
-        }
-        agreeButton.setOnClickListener {
-            parentFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_container, InfinityFragment())
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .commit()
-            mediaPlayer?.release()
         }
     }
 

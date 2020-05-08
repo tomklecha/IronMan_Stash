@@ -39,7 +39,7 @@ class InfinityFragment : Fragment() {
         }
     }
 
-    override fun onCreate(@Nullable savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         if (arguments != null) {
@@ -54,7 +54,7 @@ class InfinityFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_infinity, container, false)
     }
 
-    override fun onActivityCreated(@Nullable savedInstanceState: Bundle?) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         createViews()
         setVisibility()
@@ -70,14 +70,14 @@ class InfinityFragment : Fragment() {
 //            mediaPlayer = MediaPlayer.create(context, R.raw.thanos_snap_sound_effect)
 //            mediaPlayer?.seekTo(800)
 //            mediaPlayer?.start()
-//            disappear()
+            disappear()
 //            mediaPlayer?.setOnCompletionListener {
 //                if (mediaPlayer != null) {
 //                    mediaPlayer?.release()
 //                }
 //                mediaPlayer = null
 //            }
-//            infinityGauntlet.setOnClickListener(null)
+            infinityGauntlet.setOnClickListener(null)
         }
     }
 
@@ -118,9 +118,9 @@ class InfinityFragment : Fragment() {
     }
 
     private fun setVisibility() {
-//        if (operations!!.gauntletVisibility()) {
-//            gauntletImage!!.visibility = View.VISIBLE
-//            gatherButton!!.visibility = View.GONE
+        if (operations.gauntletVisibility()) {
+            infinityGauntlet.visibility = View.VISIBLE
+            gatherButton.visibility = View.GONE
         }
-    }
+    }}
 

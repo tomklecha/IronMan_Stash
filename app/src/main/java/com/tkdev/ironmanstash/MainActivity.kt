@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val operations = Operations(this)
-        if (operations.detailStoneList.isEmpty()) {
+        if (operations.detailStoneList.size > 5) {
             supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.activity_container, StarkFragment())

@@ -26,7 +26,7 @@ class FinishFragment : Fragment() {
     }
 
     private fun bdaySong() {
-        mediaPlayer = MediaPlayer.create(getContext(), R.raw.happy_bday)
+        mediaPlayer = MediaPlayer.create(context, R.raw.happy_bday)
         mediaPlayer?.start()
     }
 
