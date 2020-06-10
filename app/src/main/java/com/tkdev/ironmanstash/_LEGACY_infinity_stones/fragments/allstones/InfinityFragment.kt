@@ -5,16 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tkdev.ironmanstash.R
-import com.tkdev.ironmanstash.infinity_stones.fragments.Operations
-import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityAdapter
-import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityStone
-import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStoneViewPager
-import com.tkdev.ironmanstash.infinity_stones.fragments.finish_fragment.FinishFragment
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.Operations
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.allstones.InfinityAdapter
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.allstones.InfinityStone
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.details.SingleStoneViewPager
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.finish_fragment.FinishFragment
 import kotlinx.android.synthetic.main.fragment_infinity.*
 
 class InfinityFragment : Fragment() {

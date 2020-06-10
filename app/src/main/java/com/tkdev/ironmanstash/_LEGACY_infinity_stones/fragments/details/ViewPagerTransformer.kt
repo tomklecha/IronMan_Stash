@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.fragments.details
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.details
 
 import android.view.View
 import androidx.viewpager.widget.ViewPager

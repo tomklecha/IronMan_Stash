@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.fragments
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments
 
 import InfinityFragment
 import android.animation.Animator

@@ -1,13 +1,13 @@
-package com.tkdev.ironmanstash.infinity_stones.fragments
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments
 
-import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityStone
-import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStone
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.allstones.InfinityStone
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.details.SingleStone
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.tkdev.ironmanstash.infinity_stones.database.StonesContract
-import com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry
-import com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry
-import com.tkdev.ironmanstash.infinity_stones.database.StonesDbHelper
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesContract
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesContract.DetailStoneEntry
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesContract.InfinityStonesEntry
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesDbHelper
 import java.util.*
 
 class Operations internal constructor(private val context: Context) {

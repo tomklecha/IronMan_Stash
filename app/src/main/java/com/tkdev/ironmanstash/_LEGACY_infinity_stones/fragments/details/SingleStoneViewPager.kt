@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.fragments.details
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.tkdev.ironmanstash.R
-import com.tkdev.ironmanstash.infinity_stones.fragments.Operations
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.Operations
 import kotlinx.android.synthetic.main.fragment_single_view.*
 
 class SingleStoneViewPager : Fragment() {

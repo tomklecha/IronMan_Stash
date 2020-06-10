@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.database;
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
 
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.*;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.DetailStoneEntry.*;
-import static com.tkdev.ironmanstash.infinity_stones.database.StonesContract.InfinityStonesEntry.*;
+import static com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesContract.*;
+import static com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesContract.DetailStoneEntry.*;
+import static com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesContract.InfinityStonesEntry.*;
 
 
 public class StonesDbHelper extends SQLiteOpenHelper {

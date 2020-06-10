@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.fragments.finish_fragment
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.finish_fragment
 
 import android.media.MediaPlayer
 import android.os.Bundle

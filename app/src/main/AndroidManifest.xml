@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_ironman_launcher"
         android:supportsRtl="true"
         android:theme="@style/StashTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name="._LEGACY_infinity_stones.MainActivity"
             android:screenOrientation="portrait">
 
             <intent-filter>

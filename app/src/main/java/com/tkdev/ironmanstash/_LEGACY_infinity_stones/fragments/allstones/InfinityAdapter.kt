@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.fragments.allstones
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.allstones
 
 import android.content.Context
 import android.view.LayoutInflater

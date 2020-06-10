@@ -1,10 +1,10 @@
-package com.tkdev.ironmanstash.infinity_stones.fragments
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments
 
-import com.tkdev.ironmanstash.infinity_stones.fragments.allstones.InfinityStone
-import com.tkdev.ironmanstash.infinity_stones.fragments.details.SingleStone
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.allstones.InfinityStone
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.fragments.details.SingleStone
 import android.database.Cursor
 import android.database.CursorWrapper
-import com.tkdev.ironmanstash.infinity_stones.database.StonesContract
+import com.tkdev.ironmanstash._LEGACY_infinity_stones.database.StonesContract
 
 class OperationsWrapper(cursor: Cursor?) : CursorWrapper(cursor) {
    internal val infinityStoneList: InfinityStone

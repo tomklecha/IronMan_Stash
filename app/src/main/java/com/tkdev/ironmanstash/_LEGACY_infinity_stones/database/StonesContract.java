@@ -1,4 +1,4 @@
-package com.tkdev.ironmanstash.infinity_stones.database;
+package com.tkdev.ironmanstash._LEGACY_infinity_stones.database;
 
 import android.provider.BaseColumns;
 
