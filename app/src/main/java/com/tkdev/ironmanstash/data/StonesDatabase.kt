@@ -52,20 +52,18 @@ abstract class StonesDatabase : RoomDatabase() {
             dao.deleteAll()
 
             // Add sample words.
-            var stone = InfinityStoneEntity(POWER_STONE, POWER_STONE_IMAGE, false)
+            var stone = InfinityStoneEntity(POWER_STONE, POWER_STONE_IMAGE, false, POWER_STONE_COLOR, POWER_STONE_QUEST, POWER_STONE_PASSWORD)
             dao.insert(stone)
-            stone = InfinityStoneEntity(TIME_STONE, TIME_STONE_IMAGE, false)
+            stone = InfinityStoneEntity(TIME_STONE, TIME_STONE_IMAGE, false, TIME_STONE_COLOR, TIME_STONE_QUEST, TIME_STONE_PASSWORD)
             dao.insert(stone)
-            stone = InfinityStoneEntity(REALITY_STONE, REALITY_STONE_IMAGE, false)
+            stone = InfinityStoneEntity(REALITY_STONE, REALITY_STONE_IMAGE, false, REALITY_STONE_COLOR, REALITY_STONE_QUEST, REALITY_STONE_PASSWORD)
             dao.insert(stone)
-            stone = InfinityStoneEntity(MIND_STONE, MIND_STONE_IMAGE, false)
+            stone = InfinityStoneEntity(MIND_STONE, MIND_STONE_IMAGE, false, MIND_STONE_COLOR, MIND_STONE_QUEST, MIND_STONE_PASSWORD)
             dao.insert(stone)
-            stone = InfinityStoneEntity(SOUL_STONE, SOUL_STONE_IMAGE, false)
+            stone = InfinityStoneEntity(SOUL_STONE, SOUL_STONE_IMAGE, false, SOUL_STONE_COLOR, SOUL_STONE_QUEST, SOUL_STONE_PASSWORD)
             dao.insert(stone)
-            stone = InfinityStoneEntity(SPACE_STONE, SPACE_STONE_IMAGE, false)
+            stone = InfinityStoneEntity(SPACE_STONE, SPACE_STONE_IMAGE, false, SPACE_STONE_COLOR, SPACE_STONE_QUEST, SPACE_STONE_PASSWORD)
             dao.insert(stone)
-
-
 
         }
     }

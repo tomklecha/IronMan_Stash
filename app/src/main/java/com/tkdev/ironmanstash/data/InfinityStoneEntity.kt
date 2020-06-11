@@ -11,7 +11,13 @@ data class InfinityStoneEntity(
         @ColumnInfo(name = "image")
         val image: Int,
         @ColumnInfo(name = "isVisible")
-        val isVisible: Boolean
+        val isVisible: Boolean,
+        @ColumnInfo(name = "color")
+        val color: Int,
+        @ColumnInfo(name = "quest")
+        val quest: Int,
+        @ColumnInfo(name = "password")
+        val password: Int
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "uid")
