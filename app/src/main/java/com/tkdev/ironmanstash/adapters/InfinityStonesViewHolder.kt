@@ -22,4 +22,6 @@ class InfinityStonesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
 
         return this
     }
+
+
 }

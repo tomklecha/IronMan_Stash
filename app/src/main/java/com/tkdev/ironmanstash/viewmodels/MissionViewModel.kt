@@ -7,16 +7,16 @@ import com.tkdev.ironmanstash.data.InfinityStoneEntity
 import com.tkdev.ironmanstash.data.StonesDatabase
 import com.tkdev.ironmanstash.repository.InfinityStoneRepository
 
-class InfinityStoneViewModel(app: Application) : AndroidViewModel(app) {
+class MissionViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repository: InfinityStoneRepository
 
-    val allStones: LiveData<List<InfinityStoneEntity>>
+    val allMissions: LiveData<List<InfinityStoneEntity>>
 
     init {
         val wordsDao = StonesDatabase.getDatabase(app).dao()
         repository = InfinityStoneRepository(wordsDao)
-        allStones = repository.allStones
+        allMissions = repository.allMissions
     }
 
 }

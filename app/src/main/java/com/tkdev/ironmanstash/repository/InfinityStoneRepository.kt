@@ -6,6 +6,8 @@ import com.tkdev.ironmanstash.data.InfinityStoneEntity
 
 class InfinityStoneRepository (private val dao: InfinityStoneDao) {
 
-    val allWords: LiveData<List<InfinityStoneEntity>> = dao.getInfinityStones()
+    val allStones: LiveData<List<InfinityStoneEntity>> = dao.getInfinityStones()
+
+    val allMissions: LiveData<List<InfinityStoneEntity>> = dao.getMissingInfinityStones()
 
 }

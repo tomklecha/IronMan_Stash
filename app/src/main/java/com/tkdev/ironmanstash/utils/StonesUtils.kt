@@ -36,3 +36,11 @@ const val SOUL_STONE_IMAGE = R.drawable.soul_stone
 const val MIND_STONE_IMAGE = R.drawable.mind_stone
 const val SPACE_STONE_IMAGE = R.drawable.space_stone
 const val REALITY_STONE_IMAGE = R.drawable.reality_stone
+
+const val COLUMN_INFO_ID = "_id"
+const val COLUMN_INFO_NAME = "name"
+const val COLUMN_INFO_COLOR = "color"
+const val COLUMN_INFO_QUEST = "quest"
+const val COLUMN_INFO_PASSWORD = "password"
+const val COLUMN_INFO_IMAGE = "image_resource"
+const val COLUMN_INFO_VISIBILITY = "visibility"
