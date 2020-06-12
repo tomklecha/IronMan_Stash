@@ -6,8 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.tkdev.ironmanstash.R
-import com.tkdev.ironmanstash.utils.COLUMN_INFO_ID
-import com.tkdev.ironmanstash.utils.InjectorUtils
+import com.tkdev.ironmanstash.utils.*
 import com.tkdev.ironmanstash.viewmodels.InfinityStoneViewModel
 import kotlinx.android.synthetic.main.fragment_stone_detail.*
 
@@ -18,22 +17,24 @@ class SingleMissionFragment : Fragment(R.layout.fragment_stone_detail) {
     }
 
     private var uid: Long = 0
+    private var name: String = ""
+    private var color: Int = 0
+    private var quest: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uid = arguments?.getLong(COLUMN_INFO_ID)!!
+        name = arguments?.getString(COLUMN_INFO_NAME)!!
+        color = arguments?.getInt(COLUMN_INFO_COLOR)!!
+        quest = arguments?.getInt(COLUMN_INFO_QUEST)!!
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        infinityStonesModel.getMission(uid).observe(viewLifecycleOwner, Observer { stone ->
-            stone?.let {
-                stoneTitleTextView.text = it.name
-                questTextView.text = resources.getText(it.quest)
-                viewBackgroundColor(it.color)
-            }
-        })
+        stoneTitleTextView.text = name
+        questTextView.text = resources.getText(quest)
+        viewBackgroundColor(color)
 
         confirmButton.setOnClickListener {
             infinityStonesModel.complete(uid)
