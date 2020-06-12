@@ -12,6 +12,8 @@ class InfinityStoneViewModel(
 
     val allStones: LiveData<List<InfinityStoneEntity>> = repository.allStones
 
+    val allMissions: LiveData<List<InfinityStoneEntity>> = repository.allMissions
+
     fun getMission(uid: Long): LiveData<InfinityStoneEntity> = repository.getMission(uid)
 
     fun complete(uid: Long) = Executors.newSingleThreadExecutor().execute {repository.complete(uid)  }
