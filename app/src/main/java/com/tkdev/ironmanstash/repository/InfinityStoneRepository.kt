@@ -14,12 +14,12 @@ class InfinityStoneRepository(private val dao: InfinityStoneDao) {
         return dao.getMission(uid)
     }
 
-   fun complete(uid: Long) = dao.complete(uid)
+    fun complete(uid: Long) = dao.complete(uid)
 
     companion object {
 
-        // For Singleton instantiation
-        @Volatile private var instance: InfinityStoneRepository? = null
+        @Volatile
+        private var instance: InfinityStoneRepository? = null
 
         fun getInstance(dao: InfinityStoneDao) =
                 instance ?: synchronized(this) {

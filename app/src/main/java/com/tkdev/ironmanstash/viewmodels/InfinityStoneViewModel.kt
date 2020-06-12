@@ -16,5 +16,5 @@ class InfinityStoneViewModel(
 
     fun getMission(uid: Long): LiveData<InfinityStoneEntity> = repository.getMission(uid)
 
-    fun complete(uid: Long) = Executors.newSingleThreadExecutor().execute {repository.complete(uid)  }
+    fun complete(uid: Long) = Executors.newSingleThreadExecutor().execute { repository.complete(uid) }
 }
