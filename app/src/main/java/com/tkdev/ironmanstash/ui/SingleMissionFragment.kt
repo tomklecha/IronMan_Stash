@@ -3,16 +3,20 @@ package com.tkdev.ironmanstash.ui
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.utils.COLUMN_INFO_ID
-import com.tkdev.ironmanstash.viewmodels.MissionViewModel
+import com.tkdev.ironmanstash.utils.InjectorUtils
+import com.tkdev.ironmanstash.viewmodels.InfinityStoneViewModel
 import kotlinx.android.synthetic.main.fragment_stone_detail.*
 
 class SingleMissionFragment : Fragment(R.layout.fragment_stone_detail) {
 
-    private lateinit var missionViewModel: MissionViewModel
+    private val infinityStonesModel: InfinityStoneViewModel by viewModels {
+        InjectorUtils.provideInfinityStoneViewModelFactory(this.requireContext())
+    }
+
     private var uid: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +27,7 @@ class SingleMissionFragment : Fragment(R.layout.fragment_stone_detail) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        missionViewModel = ViewModelProvider(this).get(MissionViewModel::class.java)
-        missionViewModel.getMission(uid).observe(viewLifecycleOwner, Observer { stone ->
+        infinityStonesModel.getMission(uid).observe(viewLifecycleOwner, Observer { stone ->
             stone?.let {
                 stoneTitleTextView.text = it.name
                 questTextView.text = resources.getText(it.quest)
@@ -33,7 +36,7 @@ class SingleMissionFragment : Fragment(R.layout.fragment_stone_detail) {
         })
 
         confirmButton.setOnClickListener {
-            missionViewModel.complete(uid)
+            infinityStonesModel.complete(uid)
             activity?.onBackPressed()
         }
     }

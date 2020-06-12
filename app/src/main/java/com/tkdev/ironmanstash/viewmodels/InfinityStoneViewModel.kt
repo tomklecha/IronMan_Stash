@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.tkdev.ironmanstash.data.InfinityStoneEntity
 import com.tkdev.ironmanstash.repository.InfinityStoneRepository
+import java.util.concurrent.Executors
 
 class InfinityStoneViewModel(
         private val repository: InfinityStoneRepository
@@ -11,4 +12,7 @@ class InfinityStoneViewModel(
 
     val allStones: LiveData<List<InfinityStoneEntity>> = repository.allStones
 
+    fun getMission(uid: Long): LiveData<InfinityStoneEntity> = repository.getMission(uid)
+
+    fun complete(uid: Long) = Executors.newSingleThreadExecutor().execute {repository.complete(uid)  }
 }

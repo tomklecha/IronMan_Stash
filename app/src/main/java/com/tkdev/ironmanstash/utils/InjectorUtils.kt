@@ -14,8 +14,8 @@ object InjectorUtils {
     }
 
 
-    fun provideInfinityStoneViewModelFactory(fragment: Fragment): InfinityStoneViewModelFactory {
-        val repository = getInfinityStoneRepository(fragment.requireContext())
+    fun provideInfinityStoneViewModelFactory(context: Context): InfinityStoneViewModelFactory {
+        val repository = getInfinityStoneRepository(context)
         return InfinityStoneViewModelFactory(repository)
     }
 

@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_infinity.*
 class InfinityFragment : Fragment() {
 
     private val infinityStonesModel: InfinityStoneViewModel by viewModels {
-        InjectorUtils.provideInfinityStoneViewModelFactory(this)
+        InjectorUtils.provideInfinityStoneViewModelFactory(this.requireContext())
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
