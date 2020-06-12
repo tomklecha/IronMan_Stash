@@ -9,7 +9,6 @@ import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.adapters.MissionAdapter
 import com.tkdev.ironmanstash.viewmodels.MissionViewModel
 import kotlinx.android.synthetic.main.fragment_mission_view.*
-import kotlinx.android.synthetic.main.fragment_stone_detail.*
 
 class MissionViewPager : FragmentActivity(R.layout.fragment_mission_view) {
 

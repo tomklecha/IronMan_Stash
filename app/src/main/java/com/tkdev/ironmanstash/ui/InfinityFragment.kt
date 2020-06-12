@@ -6,17 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.adapters.InfinityStonesAdapter
+import com.tkdev.ironmanstash.utils.InjectorUtils
 import com.tkdev.ironmanstash.viewmodels.InfinityStoneViewModel
 import kotlinx.android.synthetic.main.fragment_infinity.*
 
 class InfinityFragment : Fragment() {
 
-    private lateinit var infinityStonesModel: InfinityStoneViewModel
+    private val infinityStonesModel: InfinityStoneViewModel by viewModels {
+        InjectorUtils.provideInfinityStoneViewModelFactory(this)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -32,7 +35,6 @@ class InfinityFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
 
-        infinityStonesModel = ViewModelProvider(this).get(InfinityStoneViewModel::class.java)
         infinityStonesModel.allStones.observe(viewLifecycleOwner, Observer { stones ->
             stones?.let { adapterStones?.setStones(it) }
         })
