@@ -9,28 +9,26 @@ import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.adapters.MissionAdapter
 import com.tkdev.ironmanstash.viewmodels.MissionViewModel
 import kotlinx.android.synthetic.main.fragment_mission_view.*
+import kotlinx.android.synthetic.main.fragment_stone_detail.*
 
-class MissionViewPager : FragmentActivity() {
+class MissionViewPager : FragmentActivity(R.layout.fragment_mission_view) {
 
     private lateinit var missionViewModel: MissionViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_mission_view)
 
         val pagerAdapter = MissionAdapter(this)
         stone_vp_pages.adapter = pagerAdapter
-        TabLayoutMediator(tab_layout, stone_vp_pages) { tab, position ->
-            tab.text = position.toString()
-        }.attach()
-
 
         missionViewModel = ViewModelProvider(this).get(MissionViewModel::class.java)
         missionViewModel.allMissions.observe(this, Observer { stones ->
-            stones?.let { pagerAdapter.setStones(it) }
+            stones?.let {
+                pagerAdapter.setStones(it)
+                TabLayoutMediator(tab_layout, stone_vp_pages) { tab, position ->
+                    tab.text = (position + 1).toString()
+                }.attach()
+            }
         })
     }
-
-
-
 }

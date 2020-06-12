@@ -1,10 +1,7 @@
 package com.tkdev.ironmanstash.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.tkdev.ironmanstash.data.InfinityStoneEntity
 
 @Dao
@@ -14,6 +11,12 @@ interface InfinityStoneDao {
 
     @Query("SELECT * from ise WHERE isVisible = 0")
     fun getMissingInfinityStones(): LiveData<List<InfinityStoneEntity>>
+
+    @Query("SELECT * from ise WHERE uid = :uid")
+    fun getMission(uid: Long): LiveData<InfinityStoneEntity>
+
+    @Query("UPDATE ISE SET isVisible = 1 WHERE uid = :uid")
+    fun complete(uid: Long)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(stone: InfinityStoneEntity)
