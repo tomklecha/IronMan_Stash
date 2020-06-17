@@ -2,8 +2,11 @@ package com.tkdev.ironmanstash.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.tkdev.ironmanstash.data.InfinityStoneEntity
 import com.tkdev.ironmanstash.repository.InfinityStoneRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 
 class InfinityStoneViewModel(
@@ -16,5 +19,5 @@ class InfinityStoneViewModel(
 
     fun getMission(uid: Long): LiveData<InfinityStoneEntity> = repository.getMission(uid)
 
-    fun complete(uid: Long) = Executors.newSingleThreadExecutor().execute { repository.complete(uid) }
+    fun complete(uid: Long) = viewModelScope.launch(Dispatchers.IO) { repository.complete(uid) }
 }
