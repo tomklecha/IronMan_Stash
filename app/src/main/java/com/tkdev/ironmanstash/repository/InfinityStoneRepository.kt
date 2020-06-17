@@ -10,10 +10,6 @@ class InfinityStoneRepository(private val dao: InfinityStoneDao) {
 
     val allMissions: LiveData<List<InfinityStoneEntity>> = dao.getMissingInfinityStones()
 
-    fun getMission(uid: Long): LiveData<InfinityStoneEntity> {
-        return dao.getMission(uid)
-    }
-
     fun complete(uid: Long) = dao.complete(uid)
 
     companion object {

@@ -17,7 +17,5 @@ class InfinityStoneViewModel(
 
     val allMissions: LiveData<List<InfinityStoneEntity>> = repository.allMissions
 
-    fun getMission(uid: Long): LiveData<InfinityStoneEntity> = repository.getMission(uid)
-
     fun complete(uid: Long) = viewModelScope.launch(Dispatchers.IO) { repository.complete(uid) }
 }
