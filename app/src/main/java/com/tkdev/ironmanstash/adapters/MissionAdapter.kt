@@ -32,6 +32,7 @@ class MissionAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     fun setStones(missions: List<InfinityStoneEntity>) {
         this.missions = missions
+        notifyDataSetChanged()
     }
 
 }
