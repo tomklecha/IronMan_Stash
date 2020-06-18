@@ -22,9 +22,9 @@ class MissionAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
     override fun createFragment(position: Int): Fragment {
         val bundle = Bundle()
         bundle.putSerializable(COLUMN_INFO_ID, missions[position].uid)
-        bundle.putSerializable(COLUMN_INFO_NAME, missions[position].name)
-        bundle.putSerializable(COLUMN_INFO_COLOR, missions[position].color)
-        bundle.putSerializable(COLUMN_INFO_QUEST, missions[position].quest)
+//        bundle.putSerializable(COLUMN_INFO_NAME, missions[position].name)
+//        bundle.putSerializable(COLUMN_INFO_COLOR, missions[position].color)
+//        bundle.putSerializable(COLUMN_INFO_QUEST, missions[position].quest)
         val fragment = SingleMissionFragment()
         fragment.arguments = bundle
         return fragment

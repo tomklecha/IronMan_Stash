@@ -5,13 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.snackbar.Snackbar
 import com.tkdev.ironmanstash.R
-import kotlinx.android.synthetic.main.fragment_stone_detail.*
+import kotlinx.android.synthetic.main.fragment_mission_single.*
 
 class SingleStoneFragmentDetail : Fragment() {
     private var name: String? = null
@@ -25,63 +24,63 @@ class SingleStoneFragmentDetail : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        name = arguments?.getSerializable(NAME) as String
-        color = arguments?.getSerializable(COLOR) as Int
-        quest = arguments?.getSerializable(QUEST) as Int
-        passwordExpected = arguments?.getSerializable(PASSWORD) as Int
+        name = ""
+        color = 0
+        quest =0
+        passwordExpected = 0
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_stone_detail, container, false)
-        view.setBackgroundColor(resources.getColor(color))
-        changeBackgrounds()
-        return view
-    }
+//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+//                              savedInstanceState: Bundle?): View? {
+//        val view = inflater.inflate(R.layout.fragment_mission_single, container, false)
+//        view.setBackgroundColor(resources.getColor(color))
+//        changeBackgrounds()
+//        return view
+//    }
 
-    private fun changeBackgrounds() {
+//    private fun changeBackgrounds() {
 //        TODO light up background colors
 //        stoneTitleTextView.setBackgroundColor(resources.getColor(color))
 //        questTextView.setBackgroundColor(resources.getColor(color))
 //        titleEnterPassword.setBackgroundColor(resources.getColor(color))
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        stoneTitleTextView.text = name
-        questTextView.setText(quest)
-        confirmButton.setOnClickListener {
-//            passwordInput = passwordInputEditText.text.toString()
-//            if (passwordInput == resources.getString(passwordExpected)) {
-                closeKeyboard()
-                activity?.supportFragmentManager?.popBackStack(InfinityFragment.FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                activity?.supportFragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.activity_container, InfinityFragment.newInstance(name!!))
-                        ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                        ?.commit()
-                confirmationSnackBar()
-//            } else {
-//                Toast.makeText(context, "Try once more Avenger !", Toast.LENGTH_SHORT).show()
-//            }
-        }
-    }
 
-    private fun confirmationSnackBar() {
-        val snackbar = Snackbar.make(view!!, "Password correct, unlocked $name !", Snackbar.LENGTH_LONG)
-        val snackBarView = snackbar.view
-        val snackBarText = snackBarView.rootView.findViewById<TextView>(R.id.snackbar_text)
-        snackBarView.setBackgroundColor(resources.getColor(color))
-        snackBarText.setTextColor(resources.getColor(android.R.color.black))
-        snackbar.show()
-    }
-
-    private fun closeKeyboard() {
-        val inputManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken,
-                InputMethodManager.HIDE_NOT_ALWAYS)
-    }
-
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        stoneTitleTextView.text = name
+//        questTextView.setText(quest)
+//        confirmButton.setOnClickListener {
+////            passwordInput = passwordInputEditText.text.toString()
+////            if (passwordInput == resources.getString(passwordExpected)) {
+//                closeKeyboard()
+//                activity?.supportFragmentManager?.popBackStack(InfinityFragment.FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+//                activity?.supportFragmentManager
+//                        ?.beginTransaction()
+//                        ?.replace(R.id.activity_container, InfinityFragment.newInstance(name!!))
+//                        ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//                        ?.commit()
+//                confirmationSnackBar()
+////            } else {
+////                Toast.makeText(context, "Try once more Avenger !", Toast.LENGTH_SHORT).show()
+////            }
+//        }
+//    }
+//
+//    private fun confirmationSnackBar() {
+//        val snackbar = Snackbar.make(view!!, "Password correct, unlocked $name !", Snackbar.LENGTH_LONG)
+//        val snackBarView = snackbar.view
+//        val snackBarText = snackBarView.rootView.findViewById<TextView>(R.id.snackbar_text)
+//        snackBarView.setBackgroundColor(resources.getColor(color))
+//        snackBarText.setTextColor(resources.getColor(android.R.color.black))
+//        snackbar.show()
+//    }
+//
+//    private fun closeKeyboard() {
+//        val inputManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//        inputManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken,
+//                InputMethodManager.HIDE_NOT_ALWAYS)
+//    }
+//
     companion object {
         const val NAME = "name"
         const val QUEST = "quest"
