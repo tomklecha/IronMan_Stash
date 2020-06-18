@@ -5,23 +5,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tkdev.ironmanstash.data.InfinityStoneEntity
+import com.tkdev.ironmanstash.databinding.RecyclerViewContainerBinding
 import kotlinx.android.synthetic.main.recycler_view_container.view.*
 
-class InfinityStonesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val stoneImageView: ImageView = itemView.recyclerStoneImage
-    private val stoneTextView: TextView = itemView.recyclerStoneName
+class InfinityStonesViewHolder(private val binding: RecyclerViewContainerBinding)
+    : RecyclerView.ViewHolder(binding.root) {
 
-    fun setHolder(holderView: InfinityStoneEntity): InfinityStonesViewHolder {
-
-        stoneImageView.setImageResource(holderView.image)
-        stoneImageView.alpha = 0.3f
-        if (holderView.isVisible) {
-            stoneImageView.animate().alpha(1f).duration = 2000;
+    fun setHolder(holderView: InfinityStoneEntity) {
+        binding.apply {
+            stone = holderView
+            executePendingBindings()
         }
-        stoneTextView.text = holderView.name
-
-        return this
     }
-
 
 }

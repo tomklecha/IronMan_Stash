@@ -9,12 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.adapters.InfinityStonesAdapter
 import com.tkdev.ironmanstash.databinding.FragmentInfinityBinding
 import com.tkdev.ironmanstash.utils.InjectorUtils
 import com.tkdev.ironmanstash.viewmodels.InfinityStoneViewModel
-import kotlinx.android.synthetic.main.fragment_infinity.*
 
 class InfinityFragment : Fragment() {
 
@@ -24,8 +22,7 @@ class InfinityFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val binding = FragmentInfinityBinding.
-        inflate(inflater, container, false).apply {
+        val binding = FragmentInfinityBinding.inflate(inflater, container, false).apply {
             viewModel = infinityStonesModel
             callback = object : Callback {
                 override fun startIntent() {
@@ -34,22 +31,20 @@ class InfinityFragment : Fragment() {
             }
         }
 
-
-        val adapterStones = context?.let { InfinityStonesAdapter(it) }
+        val adapterStones = InfinityStonesAdapter()
         binding.recyclerView.apply {
             adapter = adapterStones
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
 
-        binding.viewModel.allStones.observe(viewLifecycleOwner, Observer { stones ->
-            stones?.let { adapterStones?.setStones(it) }
+        infinityStonesModel.allStones.observe(viewLifecycleOwner, Observer { stones ->
+            adapterStones.submitList(stones)
         })
-
-
+        
         return binding.root
     }
 
-    interface Callback{
+    interface Callback {
         fun startIntent()
     }
 

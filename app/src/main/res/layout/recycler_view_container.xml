@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="stone"
+            type="com.tkdev.ironmanstash.data.InfinityStoneEntity" />
+    </data>
+<FrameLayout
     android:layout_width="150dp"
     android:layout_height="150dp"
     android:orientation="vertical">
@@ -10,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_gravity="bottom"
-        android:contentDescription="stone_image"
+        setImageResource="@{stone.image}"
+        setImageVisibility="@{stone.visible}"
         android:padding="16dp" />
 
     <TextView
@@ -20,10 +28,11 @@
         android:layout_gravity="center_horizontal"
         android:fontFamily="sans-serif-smallcaps"
         android:padding="4dp"
-        android:text="@string/single_stone_title"
+        android:text="@{stone.name}"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 </FrameLayout>
+</layout>
