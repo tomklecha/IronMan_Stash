@@ -24,12 +24,16 @@ class InfinityFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val binding = FragmentInfinityBinding.inflate(inflater, container, false)
-        binding.callback = object : Callback {
-            override fun startIntent() {
-                activity?.let { startActivity(Intent(it, MissionViewPager::class.java)) }
+        val binding = FragmentInfinityBinding.
+        inflate(inflater, container, false).apply {
+            viewModel = infinityStonesModel
+            callback = object : Callback {
+                override fun startIntent() {
+                    activity?.let { startActivity(Intent(it, MissionViewPager::class.java)) }
+                }
             }
         }
+
 
         val adapterStones = context?.let { InfinityStonesAdapter(it) }
         binding.recyclerView.apply {
@@ -37,7 +41,7 @@ class InfinityFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
 
-        infinityStonesModel.allStones.observe(viewLifecycleOwner, Observer { stones ->
+        binding.viewModel.allStones.observe(viewLifecycleOwner, Observer { stones ->
             stones?.let { adapterStones?.setStones(it) }
         })
 
