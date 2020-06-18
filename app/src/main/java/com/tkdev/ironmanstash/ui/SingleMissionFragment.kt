@@ -22,10 +22,11 @@ class SingleMissionFragment : Fragment(R.layout.fragment_stone_detail) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        uid = arguments?.getLong(COLUMN_INFO_ID)!!
-        name = arguments?.getString(COLUMN_INFO_NAME)!!
-        color = arguments?.getInt(COLUMN_INFO_COLOR)!!
-        quest = arguments?.getInt(COLUMN_INFO_QUEST)!!
+
+        uid = arguments?.getLong(COLUMN_INFO_ID) ?: throw IllegalStateException()
+        name = arguments?.getString(COLUMN_INFO_NAME) ?: throw IllegalStateException()
+        color = arguments?.getInt(COLUMN_INFO_COLOR) ?: throw IllegalStateException()
+        quest = arguments?.getInt(COLUMN_INFO_QUEST) ?: throw IllegalStateException()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

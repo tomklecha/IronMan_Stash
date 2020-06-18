@@ -1,6 +1,5 @@
 package com.tkdev.ironmanstash.adapters
 
-import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
@@ -12,6 +11,6 @@ fun setResourceId(view: ImageView, image: Int) {
 
 @BindingAdapter("setImageVisibility")
 fun setImageVisibility(view: ImageView, visibility: Boolean) {
-    if(visibility)
-      view.animate().alpha(1f).duration = 2000
+    if (visibility)
+        view.animate().alpha(1f).duration = 2000
 }

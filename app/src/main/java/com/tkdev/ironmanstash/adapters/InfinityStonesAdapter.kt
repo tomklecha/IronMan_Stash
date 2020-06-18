@@ -25,6 +25,7 @@ class InfinityStonesAdapter :
 private class StoneDiffCallback : DiffUtil.ItemCallback<InfinityStoneEntity>() {
 
     override fun areItemsTheSame(oldItem: InfinityStoneEntity, newItem: InfinityStoneEntity): Boolean {
+        //TODO check here this implementation
         return oldItem.name == newItem.name
     }
 
