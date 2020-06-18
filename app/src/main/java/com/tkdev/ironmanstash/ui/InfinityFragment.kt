@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.adapters.InfinityStonesAdapter
+import com.tkdev.ironmanstash.databinding.FragmentInfinityBinding
 import com.tkdev.ironmanstash.utils.InjectorUtils
 import com.tkdev.ironmanstash.viewmodels.InfinityStoneViewModel
 import kotlinx.android.synthetic.main.fragment_infinity.*
@@ -23,14 +24,15 @@ class InfinityFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_infinity, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+        val binding = FragmentInfinityBinding.inflate(inflater, container, false)
+        binding.callback = object : Callback {
+            override fun startIntent() {
+                activity?.let { startActivity(Intent(it, MissionViewPager::class.java)) }
+            }
+        }
 
         val adapterStones = context?.let { InfinityStonesAdapter(it) }
-        recycler_view.apply {
+        binding.recyclerView.apply {
             adapter = adapterStones
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -39,9 +41,12 @@ class InfinityFragment : Fragment() {
             stones?.let { adapterStones?.setStones(it) }
         })
 
-        gatherButton.setOnClickListener {
-            activity?.let { startActivity(Intent(it, MissionViewPager::class.java)) }
-        }
+
+        return binding.root
+    }
+
+    interface Callback{
+        fun startIntent()
     }
 
 }
