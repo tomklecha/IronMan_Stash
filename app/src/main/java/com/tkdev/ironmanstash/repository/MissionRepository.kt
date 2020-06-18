@@ -4,18 +4,20 @@ import androidx.lifecycle.LiveData
 import com.tkdev.ironmanstash.data.InfinityStoneDao
 import com.tkdev.ironmanstash.data.InfinityStoneEntity
 
-class InfinityStoneRepository(private val dao: InfinityStoneDao) {
+class MissionRepository(private val dao: InfinityStoneDao) {
 
-    val allStones: LiveData<List<InfinityStoneEntity>> = dao.getInfinityStones()
+    val allMissions: LiveData<List<InfinityStoneEntity>> = dao.getMissingInfinityStones()
+
+    fun complete(uid: Long) = dao.complete(uid)
 
     companion object {
 
         @Volatile
-        private var instance: InfinityStoneRepository? = null
+        private var instance: MissionRepository? = null
 
         fun getInstance(dao: InfinityStoneDao) =
                 instance ?: synchronized(this) {
-                    instance ?: InfinityStoneRepository(dao).also { instance = it }
+                    instance ?: MissionRepository(dao).also { instance = it }
                 }
     }
 }

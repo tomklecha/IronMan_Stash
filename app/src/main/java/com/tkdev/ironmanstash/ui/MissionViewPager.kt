@@ -8,13 +8,13 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.adapters.MissionAdapter
 import com.tkdev.ironmanstash.utils.InjectorUtils
-import com.tkdev.ironmanstash.viewmodels.InfinityStoneViewModel
+import com.tkdev.ironmanstash.viewmodels.MissionViewModel
 import kotlinx.android.synthetic.main.fragment_mission_view.*
 
 class MissionViewPager : FragmentActivity(R.layout.fragment_mission_view) {
 
-    private val infinityStonesModel: InfinityStoneViewModel by viewModels {
-        InjectorUtils.provideInfinityStoneViewModelFactory(applicationContext)
+    private val infinityStonesModel: MissionViewModel by viewModels {
+        InjectorUtils.provideMissionViewModelFactory(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

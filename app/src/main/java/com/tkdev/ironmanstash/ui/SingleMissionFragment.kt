@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.utils.*
-import com.tkdev.ironmanstash.viewmodels.InfinityStoneViewModel
+import com.tkdev.ironmanstash.viewmodels.MissionViewModel
 import kotlinx.android.synthetic.main.fragment_stone_detail.*
 
 class SingleMissionFragment : Fragment(R.layout.fragment_stone_detail) {
 
-    private val infinityStonesModel: InfinityStoneViewModel by viewModels {
-        InjectorUtils.provideInfinityStoneViewModelFactory(this.requireContext())
+    private val infinityStonesModel: MissionViewModel by viewModels {
+        InjectorUtils.provideMissionViewModelFactory(this.requireContext())
     }
 
     private var uid: Long = 0
