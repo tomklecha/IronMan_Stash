@@ -16,7 +16,7 @@ class SingleMissionViewModel(
 
     val mission: LiveData<InfinityStoneEntity> = repository.mission(uid)
 
-    val _password = MutableLiveData<Int>()
+    private val _password = MutableLiveData<Int>()
 
     val password: LiveData<Int> = _password
 
