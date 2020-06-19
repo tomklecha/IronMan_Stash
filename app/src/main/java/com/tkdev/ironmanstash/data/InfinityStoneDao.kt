@@ -14,6 +14,12 @@ interface InfinityStoneDao {
     @Query("SELECT * from ise WHERE isVisible = 0")
     fun getMissingInfinityStones(): LiveData<List<InfinityStoneEntity>>
 
+    @Query("SELECT * from ise WHERE uid = :uid")
+    fun getMission(uid: Long): LiveData<InfinityStoneEntity>
+
+    @Query("SELECT password from ise WHERE uid = :uid")
+    suspend fun getPassword(uid: Long): Int
+
     @Query("UPDATE ISE SET isVisible = 1 WHERE uid = :uid")
     fun complete(uid: Long)
 
