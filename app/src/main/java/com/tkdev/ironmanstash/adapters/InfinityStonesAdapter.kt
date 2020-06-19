@@ -1,32 +1,35 @@
 package com.tkdev.ironmanstash.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.tkdev.ironmanstash.R
 import com.tkdev.ironmanstash.data.InfinityStoneEntity
+import com.tkdev.ironmanstash.databinding.RecyclerViewContainerBinding
 
-class InfinityStonesAdapter internal constructor(context: Context) : RecyclerView.Adapter<InfinityStonesViewHolder>() {
+class InfinityStonesAdapter :
+        ListAdapter<InfinityStoneEntity, RecyclerView.ViewHolder>(StoneDiffCallback()) {
 
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var stones = emptyList<InfinityStoneEntity>()
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): InfinityStonesViewHolder {
-        return InfinityStonesViewHolder(inflater.inflate(R.layout.recycler_view_container, viewGroup, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return InfinityStonesViewHolder(RecyclerViewContainerBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun getItemCount(): Int = stones.size
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val item = getItem(position)
+        (holder as InfinityStonesViewHolder).setHolder(item)
+    }
+}
 
-    internal fun setStones(stones: List<InfinityStoneEntity>) {
-        this.stones = stones
-        notifyDataSetChanged()
+private class StoneDiffCallback : DiffUtil.ItemCallback<InfinityStoneEntity>() {
+
+    override fun areItemsTheSame(oldItem: InfinityStoneEntity, newItem: InfinityStoneEntity): Boolean {
+        //TODO check here this implementation
+        return oldItem.name == newItem.name
     }
 
-
-    override fun onBindViewHolder(infinityViewHolder: InfinityStonesViewHolder, position: Int) {
-        infinityViewHolder.setHolder(stones[position])
+    override fun areContentsTheSame(oldItem: InfinityStoneEntity, newItem: InfinityStoneEntity): Boolean {
+        return oldItem == newItem
     }
-
-
 }

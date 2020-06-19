@@ -5,14 +5,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tkdev.ironmanstash.data.InfinityStoneEntity
 import com.tkdev.ironmanstash.repository.InfinityStoneRepository
+import com.tkdev.ironmanstash.repository.MissionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 
-class InfinityStoneViewModel(
-        private val repository: InfinityStoneRepository
+class MissionViewModel(
+        private val repository: MissionRepository
 ) : ViewModel() {
 
-    val allStones: LiveData<List<InfinityStoneEntity>> = repository.allStones
+    val allMissions: LiveData<List<InfinityStoneEntity>> = repository.allMissions
 
 }
